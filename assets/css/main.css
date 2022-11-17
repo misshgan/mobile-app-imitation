@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.phone {
+  width: 300px;
+  height: 600px;
+  position: relative;
+  z-index: 100;
+}
+.phone .phone-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.info-bar {
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 105;
+  position: absolute;
+  top: 33px;
+  left: 40px;
+  right: 33px;
+}
+.info-bar__left {
+  font-size: 11px;
+  font-weight: bold;
+}
+.info-bar__right {
+  display: flex;
+  max-height: 8px;
+}
+.info-bar__right > *:not(:last-child) {
+  margin-right: 3px;
+}
+
+.default-position {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
+  border-radius: 50px;
+}
+
+.login-1 {
+  background: #3B79D8;
+  padding-top: 100px;
+}
+.login-1__logo {
+  width: 159px;
+  height: 79px;
+  margin: 0 auto;
+  display: block;
+}
+
+/** LOGIN ********************************************************************** LOGIN **/
