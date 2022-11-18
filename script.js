@@ -30,3 +30,7 @@ function links() {
 	})
 }
 
+window.addEventListener('resize', function(){
+	console.log(window.innerHeight, window.innerWidth)
+})
+

@@ -36,7 +36,7 @@ html {
     font-size: 43% !important;
   }
 }
-@media only screen and (max-height: 86.2rem) {
+@media (max-height: 800px) {
   html {
     font-size: 42% !important;
   }

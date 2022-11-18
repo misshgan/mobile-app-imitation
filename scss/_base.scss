@@ -52,15 +52,6 @@ ORDER: Base + typography > general layout + grid > page layout > components
 		;
 	}
 
-	@if $breakpoint ==800h {
-		@media only screen and (max-height:  56.25em) {
-			@content
-		}
-
-		;
-	}
-
-
 	@if $breakpoint ==900px {
 		@media only screen and (max-width: 56.25em) {
 			@content
@@ -111,7 +102,7 @@ html {
 		font-size: 43% !important; // 1rem = 7px; 7/16 = 43%;
 	}
 
-	@include respond(800h) {
+	@media (max-height: 800px) {
 		font-size: 42% !important;
 	}
 
