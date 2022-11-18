@@ -3,6 +3,55 @@
   font-family: "DM Sans", sans-serif;
 }
 
+/*
+0 - 600 : Phone
+600 - 900 : Tablet portrait 
+900 - 1200 : Tablet landscape
+[1200 - 1800] : is where aor normal styles apply
+1800 + : big screens 
+$breakpoint argument choises
+- phone 
+- tab-port
+- tab-land
+- big-desktop
+1em = 16px
+ORDER: Base + typography > general layout + grid > page layout > components 
+*/
+html {
+  font-size: 62.5% !important;
+  scroll-behavior: smooth;
+}
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25% !important;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50% !important;
+  }
+}
+@media only screen and (max-width: 50em) {
+  html {
+    font-size: 43% !important;
+  }
+}
+@media only screen and (max-width: 43.7em) {
+  html {
+    font-size: 37.5% !important;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 31.25% !important;
+  }
+}
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75% !important;
+  }
+}
+
 body {
   margin: 0;
   display: flex;
@@ -12,8 +61,8 @@ body {
 }
 
 .phone {
-  width: 300px;
-  height: 600px;
+  width: 42.5rem;
+  height: 86.2rem;
   position: relative;
   z-index: 100;
 }
@@ -25,46 +74,128 @@ body {
 }
 
 .info-bar {
-  height: 20px;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   z-index: 105;
   position: absolute;
-  top: 33px;
-  left: 40px;
-  right: 33px;
+  top: 4.8rem;
+  left: 6rem;
+  right: 4.5rem;
 }
 .info-bar__left {
-  font-size: 11px;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 .info-bar__right {
   display: flex;
-  max-height: 8px;
+  max-height: 1.2rem;
 }
 .info-bar__right > *:not(:last-child) {
-  margin-right: 3px;
+  margin-right: 0.3rem;
 }
 
 .default-position {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
   z-index: 1;
-  border-radius: 50px;
+  border-radius: 10rem;
 }
 
+/** LOGIN-1 ********************************************************************** LOGIN-1 **/
 .login-1 {
   background: #3B79D8;
-  padding-top: 100px;
+  padding-top: 10rem;
+  display: flex;
+  flex-direction: column;
 }
 .login-1__logo {
-  width: 159px;
-  height: 79px;
+  width: 15.9rem;
+  height: 7.9rem;
   margin: 0 auto;
   display: block;
 }
+.login-1__sup-logo {
+  width: 11.3rem;
+  height: 2rem;
+  display: block;
+  margin: 0 auto;
+  margin-top: -1.5rem;
+}
+.login-1__img {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background-image: url(/images/banner\ \(temp\)\ \(1\).svg);
+  background-position: center;
+  background-size: cover;
+  border-bottom-left-radius: 10rem;
+  border-bottom-right-radius: 10rem;
+}
+.login-1__copy {
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.33;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-top: auto;
+  margin-bottom: -2rem;
+  position: relative;
+}
 
-/** LOGIN ********************************************************************** LOGIN **/
+.links {
+  padding: 7.8rem 5.5rem 0;
+}
+.links__link {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  position: relative;
+}
+.links__link:not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+.links__link img {
+  position: absolute;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.links__link span {
+  margin: 0 auto;
+}
+.links__link_blue {
+  background: #1877F2;
+}
+.links__link_green {
+  background: #0077B5;
+}
+.links__link_dark-blue {
+  background: #3367D6;
+}
+.links__link_simple-gray {
+  background: #D3D7DB;
+  color: #000;
+}
+.links__signup {
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 1.8rem;
+}
+.links__signup-link {
+  text-decoration: underline;
+  font-weight: bold;
+}
