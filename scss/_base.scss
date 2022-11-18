@@ -53,7 +53,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 	}
 
 	@if $breakpoint ==800h {
-		@media only screen and (max-height:  86.2rem) {
+		@media only screen and (max-height:  56.25em) {
 			@content
 		}
 
