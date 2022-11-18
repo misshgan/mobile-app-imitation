@@ -1,4 +1,5 @@
 window.addEventListener('load', setTime);
+window.addEventListener('load', links);
 
 setInterval(() => {
 	setTime();
@@ -19,3 +20,13 @@ function setTime() {
 	
 	target.innerHTML = `<span>${timeHours}:${timeMinutes}</span>`
 }
+
+function links() {
+	let signupLink = document.querySelector('.links__signup-link');
+	document.addEventListener('click', function(e){
+		if (!e.target.className=='links__signup-link') {
+			console.log('click')
+		}
+	})
+}
+
