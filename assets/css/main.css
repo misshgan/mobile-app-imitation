@@ -268,3 +268,147 @@ body {
 .links-2 .links__signup {
   color: #000;
 }
+
+/** SIGNUP ********************************************************************** SIGNUP **/
+.signup {
+  display: none;
+  flex-direction: column;
+}
+.signup__header {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  padding-top: 7rem;
+  padding-bottom: 1.2rem;
+  position: relative;
+  z-index: 10;
+}
+.signup__header div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  color: #000000;
+}
+.signup__header div span {
+  margin: 0 auto;
+}
+.signup__header div img {
+  position: absolute;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+.signup__header img {
+  display: block;
+  margin: 0 auto;
+  width: 32.1rem;
+  height: 0.5rem;
+}
+.signup__footer {
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+  padding: 0 4rem;
+  padding-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signup__footer div {
+  display: flex;
+  margin-bottom: 2.5rem;
+}
+.signup__footer img {
+  display: block;
+  width: 13.4rem;
+  height: 0.5rem;
+}
+.signup__footer span {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.33;
+  padding: 1.2rem 6.5rem;
+  letter-spacing: -0.02em;
+  border-radius: 1.4rem;
+  cursor: pointer;
+}
+.signup__back {
+  color: #000000;
+  background: #D3D7DB;
+  opacity: 0.3;
+  margin-right: 0.5rem;
+  cursor: default !important;
+}
+.signup__next {
+  color: #FFFFFF;
+  background: #1e3857;
+}
+
+/** SIGNUP-BLOCK-1 ********************************************************************** SIGNUP-BLOCK-1 **/
+.signup-block {
+  padding-bottom: 1.4rem;
+  position: relative;
+  z-index: 10;
+}
+.signup-block__header {
+  margin: 0 auto;
+  width: 88%;
+  padding: 2.8rem 1.7rem 1.4rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.31;
+  border-bottom: 1px solid #D3D7DB;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+.signup-block__input-block {
+  padding: 2.2rem 4rem 0;
+  display: flex;
+  -moz-column-gap: 0.6rem;
+       column-gap: 0.6rem;
+}
+.signup-block__input-block div {
+  width: 100%;
+}
+.signup-block__input-block span {
+  display: block;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.6rem;
+  color: #727578;
+}
+.signup-block__input-block input {
+  display: block;
+  width: 100%;
+  background: #F7F8F9;
+  border: 1px solid #D3D7DB;
+  border-radius: 0.8rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.31;
+  color: #000000;
+  padding: 0.9rem 1.1rem;
+}
+.signup-block__input-block input:focus {
+  outline: none;
+}
+.signup-block__input-block select {
+  display: block;
+  width: 100%;
+  background: #F7F8F9;
+  border: 1px solid #D3D7DB;
+  border-radius: 0.8rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.31;
+  color: #727578;
+  padding: 0.8rem 0.2rem;
+}
+.signup-block__input-block select:focus {
+  outline: none;
+}

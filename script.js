@@ -25,6 +25,7 @@ function links() {
 	let signupLink = document.querySelectorAll('.links__signup-link');
 	let login1 = document.querySelector('.login-1')
 	let login2 = document.querySelector('.login-2')
+	let signupPage = document.querySelector('.signup')
 
 	document.onclick = function(e) {
 		if (!e.target.classList.contains('click-target')) {
@@ -49,6 +50,11 @@ function links() {
 	signupLink[0].addEventListener('click', function(){
 		login1.style.display = 'none';
 		login2.style.display = 'flex';
+	})
+
+	signupLink[1].addEventListener('click', function(){
+		login2.style.display = 'none';
+		signupPage.style.display = 'flex'
 	})
 }
 
