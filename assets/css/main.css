@@ -36,9 +36,9 @@ html {
     font-size: 43% !important;
   }
 }
-@media (max-height: 800px) {
+@media (max-height: 900px) {
   html {
-    font-size: 42% !important;
+    font-size: 40% !important;
   }
 }
 @media only screen and (max-width: 43.7em) {

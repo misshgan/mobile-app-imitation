@@ -102,8 +102,8 @@ html {
 		font-size: 43% !important; // 1rem = 7px; 7/16 = 43%;
 	}
 
-	@media (max-height: 800px) {
-		font-size: 42% !important;
+	@media (max-height: 900px) {
+		font-size: 40% !important;
 	}
 
 	@include respond(700px) {
