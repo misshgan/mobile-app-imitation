@@ -335,4 +335,42 @@ body {
 .login-2 {
 	background: #EEEEE9;
 	display: none;
+	flex-direction: column;
+	padding-top: 10rem;
+
+	&__logo {
+		width: 19.7rem;
+		height: 7.1rem;
+
+		margin: 0 auto;
+		display: block;
+	}
+
+	&__copy {
+		font-weight: 400;
+		font-size: 1.3rem;
+		line-height: 1.33;
+
+		text-align: center;
+		letter-spacing: -0.02em;
+
+		color: #000000;
+		display: block;
+		margin-top: auto;
+	
+		margin-bottom: 6rem;
+	}
+}
+
+.links-2 {
+	margin-top: 5rem;
+
+	.links__link {
+		border: 0;
+		color: #fff;
+	}
+
+	.links__signup {
+		color: #000;
+	}
 }

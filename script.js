@@ -22,25 +22,33 @@ function setTime() {
 }
 
 function links() {
-	let signupLink = document.querySelector('.links__signup-link');
+	let signupLink = document.querySelectorAll('.links__signup-link');
 	let login1 = document.querySelector('.login-1')
 	let login2 = document.querySelector('.login-2')
 
 	document.onclick = function(e) {
 		if (!e.target.classList.contains('click-target')) {
-			signupLink.animate([
+			signupLink[0].animate([
 				{ color: 'green'},
 				{ color: '#fff'}
 			], {
 				duration: 500, 
 				iterations: 1
 			});
+			signupLink[1].animate([
+				{ color: 'green'},
+				{ color: '#000'}
+			], {
+				duration: 500, 
+				iterations: 1
+			});
+		} else if (e.target.classList.contains('click-target')) {
 		}
 	}
 
-	signupLink.addEventListener('click', function(){
+	signupLink[0].addEventListener('click', function(){
 		login1.style.display = 'none';
-		login2.style.display = 'block';
+		login2.style.display = 'flex';
 	})
-	
 }
+
