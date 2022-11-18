@@ -471,3 +471,8 @@ body {
   width: 2.4rem;
   height: 2.4rem;
 }
+
+/** SIGNUP-BLOCK-3 ********************************************************************** SIGNUP-BLOCK-3 **/
+.signup-block-3 {
+  display: none;
+}
