@@ -23,14 +23,24 @@ function setTime() {
 
 function links() {
 	let signupLink = document.querySelector('.links__signup-link');
-	document.addEventListener('click', function(e){
-		if (!e.target.className=='links__signup-link') {
-			console.log('click')
+	let login1 = document.querySelector('.login-1')
+	let login2 = document.querySelector('.login-2')
+
+	document.onclick = function(e) {
+		if (!e.target.classList.contains('click-target')) {
+			signupLink.animate([
+				{ color: 'green'},
+				{ color: '#fff'}
+			], {
+				duration: 500, 
+				iterations: 1
+			});
 		}
+	}
+
+	signupLink.addEventListener('click', function(){
+		login1.style.display = 'none';
+		login2.style.display = 'block';
 	})
+	
 }
-
-window.addEventListener('resize', function(){
-	console.log(window.innerHeight, window.innerWidth)
-})
-

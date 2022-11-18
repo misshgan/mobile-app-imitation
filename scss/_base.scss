@@ -106,6 +106,14 @@ html {
 		font-size: 40% !important;
 	}
 
+	@media (max-height: 850px) {
+		font-size: 39% !important;
+	}
+
+	@media (max-height: 800px) {
+		font-size: 38% !important;
+	}
+
 	@include respond(700px) {
 		font-size: 37.5% !important; // 1rem = 6px; 6/16 = 37.5%
 	}
@@ -257,6 +265,7 @@ body {
 	z-index: 50;
 
 	&__link {
+		cursor: pointer;
 		display: flex;
 		align-items: center;
 		padding: 1rem;
@@ -310,9 +319,20 @@ body {
 	&__signup-link {
 		text-decoration: underline;
 		font-weight: bold;
+		cursor: pointer;
+		transition: all .3s;
 
 		&:hover {
 			color: #000;
 		}
 	}
+}
+
+
+
+/** LOGIN-2 ********************************************************************** LOGIN-2 **/
+
+.login-2 {
+	background: #EEEEE9;
+	display: none;
 }
