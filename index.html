@@ -80,13 +80,13 @@
 		<div class="signup default-position">
 			<div class="signup__header">
 				<div>
-					<img src="images/arrow-left.svg" alt="arrow left">
+					<img src="images/arrow-left.svg" class="arrow-left click-target" alt="arrow left">
 					<span>Let's get started</span>
 				</div>
-				<img src="images/progress-1.svg" alt="progress bar image">
+				<img class="progress-bar" src="images/progress-1.svg" alt="progress bar image">
 			</div>
 
-			<div class="signup__block-1 signup-block">
+			<div class="signup-block signup-block-1">
 				<div class="signup-block__header">Personal details</div>
 				<div class="signup-block__input-block">
 					<div>
@@ -145,11 +145,90 @@
 				</div>
 			</div>
 
+			<div class="signup-block signup-block-2">
+				<div class="signup-block__header">Personal details
+					<div class="signup-block__header-description">Let us know about your business! We’ll use these details to create unique campaign messages</div>
+				</div>
+				<div class="signup-block__input-block">
+					<div>
+						<span>Buisness name*</span>
+						<input type="text" placeholder="Boxing with Sophia">
+					</div>
+				</div>
+				<div class="signup-block__input-block">
+					<div>
+						<span>Buisness website*</span>
+						<input type="text" placeholder="boxingwithsophia.co.uk">
+					</div>
+				</div>
+				<div class="signup-block__input-block">
+					<div>
+						<span>Buisness email*</span>
+						<input type="email" placeholder="sophia@gmail.com">
+					</div>
+				</div>
+				<div class="signup-block__input-block" style="align-items: flex-end;">
+					<div>
+						<span>Buisness start date</span>
+						<input type="text" placeholder="day">
+					</div>
+					<div>
+						<!-- <input type="select" placeholder="month"> -->
+						<select name="" id="">
+							<option value="">January</option>
+							<option value="">February</option>
+							<option value="">March</option>
+							<option value="">April</option>
+							<option value="">May</option>
+							<option value="">June</option>
+							<option value="">July</option>
+							<option value="">August</option>
+							<option value="">September</option>
+							<option value="">October</option>
+							<option value="">November</option>
+							<option value="">December</option>
+						</select>
+					</div>
+					<div>
+						<input type="text" placeholder="year">
+					</div>
+				</div>
+				<div class="signup-block__input-block">
+					<div>
+						<span>City</span>
+						<div style="display: flex;">
+							<input type="text" placeholder="London">
+							<div class="target-img">
+								<img src="images/target-icon.svg" alt="target icon">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="signup-block__input-block">
+					<div>
+						<span>What three services does your business provide? e.g. “Vegan cookies”</span>
+						<input type="text" placeholder="Boxing training" style="margin-bottom: 0.8rem;">
+						<input type="text" placeholder="1 on 1 coaching" style="margin-bottom: 0.8rem;">
+						<input type="text" placeholder="Corporate training days">
+					</div>
+				</div>
+				<div class="signup-block__input-block">
+					<div>
+						<span>These services benefit customers by helping them...</span>
+						<input type="text" placeholder="Lose weight" style="margin-bottom: 0.8rem;">
+						<input type="text" placeholder="Lern self-defence" style="margin-bottom: 0.8rem;">
+						<input type="text" placeholder="Third benefit...">
+					</div>
+				</div>
+			</div>
+
+			
+
 
 			<div class="signup__footer">
 				<div>
 					<span class="signup__back">Back</span>
-					<span class="signup__next">Next</span>
+					<span class="signup__next signup__next-1 click-target">Next</span>
 				</div>
 				<img src="images/home-indicatir.svg" alt="iphone home indicator">
 			</div>

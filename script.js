@@ -26,9 +26,24 @@ function links() {
 	let login1 = document.querySelector('.login-1')
 	let login2 = document.querySelector('.login-2')
 	let signupPage = document.querySelector('.signup')
+	let targets = document.querySelectorAll('.click-target')
 
 	document.onclick = function(e) {
 		if (!e.target.classList.contains('click-target')) {
+
+			for (i = 0; i < targets.length; i++) {
+				targets[i].animate([
+					{ 
+						outline: '0.3rem solid',
+						outlineColor: 'green'
+					},
+					{ outlineColor: 'transparent'}
+				], {
+					duration: 700, 
+					iterations: 1
+				});
+			}
+
 			signupLink[0].animate([
 				{ color: 'green'},
 				{ color: '#fff'}
@@ -55,6 +70,37 @@ function links() {
 	signupLink[1].addEventListener('click', function(){
 		login2.style.display = 'none';
 		signupPage.style.display = 'flex'
+		document.querySelector('.signup-block-1').style.display = 'block';
+		document.querySelector('.progress-bar').setAttribute('src', 'images/progress-1.svg');
+	})
+
+	document.querySelector('.arrow-left').addEventListener('click', () => {
+		signupPage.style.display = 'none'
+		document.querySelector('.signup-block-2').style.display = 'none';
+		document.querySelector('.signup__back').classList.remove('signup__back-active');
+		document.querySelector('.signup__back').classList.remove('click-target');
+		login1.style.display = 'flex';
+		links();
+	})
+
+	document.querySelector('.signup__next-1').addEventListener('click', () => {
+		document.querySelector('.signup-block-1').style.display = 'none';
+		document.querySelector('.signup-block-2').style.display = 'block';
+		document.querySelector('.signup__back').classList.add('signup__back-active');
+		document.querySelector('.signup__back').classList.add('click-target');
+		document.querySelector('.signup__back').classList.add('signup__back-1');
+		document.querySelector('.progress-bar').setAttribute('src', 'images/progress-2.svg');
+		links();
+	})
+
+	document.querySelector('.signup__back-1').addEventListener('click', () => {
+		document.querySelector('.signup-block-2').style.display = 'none';
+		document.querySelector('.signup-block-1').style.display = 'block';
+		document.querySelector('.signup__back').classList.remove('signup__back-active');
+		document.querySelector('.signup__back').classList.remove('click-target');
+		document.querySelector('.signup__back').classList.remove('signup__back-1');
+		document.querySelector('.progress-bar').setAttribute('src', 'images/progress-1.svg');
+		links();
 	})
 }
 

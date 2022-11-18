@@ -342,6 +342,10 @@ body {
   margin-right: 0.5rem;
   cursor: default !important;
 }
+.signup__back-active {
+  opacity: 1;
+  cursor: pointer !important;
+}
 .signup__next {
   color: #FFFFFF;
   background: #1e3857;
@@ -362,6 +366,13 @@ body {
   line-height: 1.31;
   border-bottom: 1px solid #D3D7DB;
   letter-spacing: -0.02em;
+  color: #000000;
+}
+.signup-block__header-description {
+  padding-top: 0.8rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.43;
   color: #000000;
 }
 .signup-block__input-block {
@@ -411,4 +422,52 @@ body {
 }
 .signup-block__input-block select:focus {
   outline: none;
+}
+
+/** SIGNUP-BLOCK-2 ********************************************************************** SIGNUP-BLOCK-2 **/
+::-webkit-scrollbar {
+  width: 3px;
+  height: 18px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 2px;
+  background-clip: padding-box;
+  background-color: rgba(0, 0, 0, 0.606);
+  -webkit-border-radius: 7px;
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.signup-block-2 {
+  display: none;
+  overflow: auto;
+  width: 93.5%;
+}
+.signup-block-2 .signup-block__input-block {
+  padding: 2.2rem 1.5rem 0 4rem;
+}
+
+.target-img {
+  background: #FF874E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 4.4rem;
+  max-height: 4.4rem;
+  border-radius: 0.8rem;
+  margin-left: 0.6rem;
+}
+.target-img img {
+  width: 2.4rem;
+  height: 2.4rem;
 }
