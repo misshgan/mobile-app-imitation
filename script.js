@@ -75,6 +75,7 @@ function signupBlock() {
 				return false;
 			}
 		}
+		return false;
 	}
 
 	clickCheck();
@@ -200,11 +201,13 @@ function signupBlock() {
 		contactsCreate.addEventListener('click', () => {
 			popup.style.display = 'block';
 			popupWhite.style.display = 'block'
+			return false;
 		})
 	
 		popupGoBack.addEventListener('click', () => {
 			popup.style.display = 'none';
 			popupWhite.style.display = 'none'
+			return false;
 		})
 	}
 

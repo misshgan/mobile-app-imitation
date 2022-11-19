@@ -416,8 +416,8 @@ body {
   z-index: 10;
 }
 .signup-block__header {
-  margin: 0 auto;
-  width: 88%;
+  margin-left: 2.5rem;
+  width: 87.5%;
   padding: 2.8rem 1.7rem 1.4rem;
   font-weight: 500;
   font-size: 1.6rem;
@@ -482,6 +482,17 @@ body {
   outline: none;
 }
 
+.signup-block-1 {
+  overflow: auto;
+  width: 93.5%;
+}
+.signup-block-1 .signup-block__input-block {
+  padding-right: 1rem;
+}
+.signup-block-1 .signup-block__header {
+  width: 92.7%;
+}
+
 /** SIGNUP-BLOCK-2 ********************************************************************** SIGNUP-BLOCK-2 **/
 ::-webkit-scrollbar {
   width: 3px;
@@ -510,6 +521,9 @@ body {
   display: none;
   overflow: auto;
   width: 93.5%;
+}
+.signup-block-2 .signup-block__header {
+  width: 92.7%;
 }
 .signup-block-2 .signup-block__input-block {
   padding: 2.2rem 1.5rem 0 4rem;
@@ -587,3 +601,5 @@ body {
   letter-spacing: -0.02em;
   color: #000000;
 }
+
+/** DASHBOARD ********************************************************************** DASHBOARD **/
