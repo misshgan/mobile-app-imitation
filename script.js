@@ -3,7 +3,7 @@ window.addEventListener('load', links);
 
 setInterval(() => {
 	setTime();
-}, 1000);
+}, 20000);
 
 function setTime() {
 	let target = document.querySelector('.info-bar__left');
@@ -39,7 +39,9 @@ function links() {
 	let signupNext2 = document.querySelector('.signup__next-2');
 
 	let signupBack1 = document.querySelector('.signup__back-1');
+	let signupBack2 = document.querySelector('.signup__back-2');
 	
+	let signupBlock  = document.querySelector('.signup-block');
 	let signupBlock1 = document.querySelector('.signup-block-1');
 	let signupBlock2 = document.querySelector('.signup-block-2');
 	let signupBlock3 = document.querySelector('.signup-block-3');
@@ -47,6 +49,11 @@ function links() {
 	let signupBack = document.querySelector('.signup__back');
 	
 	let progressBar = document.querySelector('.progress-bar');
+
+	let contactsCreate = document.querySelector('.contacts__group-create');
+	let popup = document.querySelector('.default-position__popup');
+	let popupWhite = document.querySelector('.default-position__popup-elem')
+	let popupGoBack = document.querySelector('.popup-elem__header-goback');
 
 	
 	document.onclick = function(e) {
@@ -125,12 +132,43 @@ function links() {
 		signupNext2.addEventListener('click', () => {
 			signupBack.classList.remove('signup__back-1');
 			signupBack.classList.add('signup__back-2');
+			signupNext.classList.remove('signup__next-2');
+			signupNext.classList.add('signup__next-3');
 			progressBar.setAttribute('src', 'images/progress-3.svg');
+			// contactsCreate.classList.add('click-target');
 			signupBlock2.style.display = 'none';
 			signupBlock3.style.display = 'block'
 			links();
 		})
 	}
+
+	if (signupBack2) {
+		signupBack2.addEventListener('click', () => {
+			signupBack.classList.remove('signup__back-2');
+			signupBack.classList.add('signup__back-1');
+			signupBack.classList.add('signup__back-active');
+			signupBack.classList.add('click-target');
+			signupNext.classList.remove('signup__next-3')
+			signupNext.classList.add('signup__next-2')
+			progressBar.setAttribute('src', 'images/progress-2.svg');
+			signupBlock3.style.display = 'none';
+			signupBlock1.style.display = 'none';
+			signupBlock2.style.display = 'block';
+			links();
+		})
+	}
+
+	contactsCreate.addEventListener('click', () => {
+		popup.style.display = 'block';
+		popupWhite.style.display = 'block'
+	})
+
+	popupGoBack.addEventListener('click', () => {
+		popup.style.display = 'none';
+		popupWhite.style.display = 'none'
+	})
+	
+
 	
 	
 }
