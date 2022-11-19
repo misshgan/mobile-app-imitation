@@ -789,3 +789,127 @@ body {
 
 
 /** DASHBOARD ********************************************************************** DASHBOARD **/
+
+
+
+.dashboard {
+	display: none;
+	flex-direction: column;
+	
+
+	&__body {
+		position: relative;
+		z-index: 6;
+	}
+	
+	&__header {
+		position: relative;
+		z-index: 6;
+		padding: 8.4rem 3.5rem 2.2rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		img {
+			width: 3rem;
+			height: 3rem;
+		}
+
+		span {
+			width: 15.6rem;
+
+			font-weight: 400;
+			font-size: 2rem;
+			line-height: 1.2;
+
+			color: #000000;
+		}
+	}
+	
+	&__recommend {
+		padding: 0 3.5rem;
+		margin-bottom: 0.8rem;
+
+		span {
+			font-weight: 400;
+			font-size: 1.4rem;
+			line-height: 1.33;
+
+			display: block;
+			margin-bottom: 0.8rem;
+			color: #000000;
+		}
+
+		img {
+			width: 34.8rem;
+			height: 11.7rem;
+		}
+	}
+	&__latest {
+		padding: 0 3.5rem;
+		margin-bottom: 2.4rem;
+
+		img {
+			width: 34.6rem;
+			height: 23rem;
+		}
+	}
+	&__tools {
+		padding: 0 3rem 0 3rem;
+
+		span {
+			margin-left: 0.8rem;
+			font-weight: 400;
+			font-size: 1.6rem;
+			line-height: 1.33;
+
+			letter-spacing: -0.02em;
+
+			color: #000000;
+		}
+
+		img {
+			width: 19.5rem;
+			height: 13.5rem;
+		}
+	}
+	&__tools-group {
+		display: flex;
+		overflow: auto;
+
+		&::-webkit-scrollbar {
+			display: none;
+		  }
+	}
+	&__footer {
+		position: relative;
+		z-index: 6;
+		padding: 1.4rem 2.4rem 3rem;
+		box-shadow: 0px 2px 20px rgba(69, 74, 82, 0.14);
+		margin-top: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		div {
+			margin: 0 auto;
+			width: 85%;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 3.4rem;
+
+			img {
+				width: 2.8rem;
+				height: 2.8rem;
+			}
+		}
+
+		img {
+			display: block;
+			margin: 0 auto;
+			width: 13.4rem;
+			height: 0.5rem;
+		}
+	}
+}

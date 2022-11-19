@@ -1,5 +1,6 @@
 window.addEventListener('load', setTime);
 window.addEventListener('load', signupBlock);
+window.addEventListener('load', dashboard);
 
 setInterval(() => {
 	setTime();
@@ -53,6 +54,8 @@ function signupBlock() {
 	let popup = document.querySelector('.default-position__popup');
 	let popupWhite = document.querySelector('.default-position__popup-elem')
 	let popupGoBack = document.querySelector('.popup-elem__header-goback');
+
+	let dashboard = document.querySelector('.dashboard');
 
 	
 	function clickCheck() {
@@ -171,7 +174,8 @@ function signupBlock() {
 			signupBlock3.style.display = 'block'
 			arrowLeftFunc();
 			signupBack2Func();
-			createPopup()
+			createPopup();
+			signupNext3Func();
 			return false;
 		})
 	}
@@ -211,6 +215,27 @@ function signupBlock() {
 		})
 	}
 
+	function signupNext3Func() {
+		signupNext3 = document.querySelector('.signup__next-3');
+
+		signupNext3.addEventListener('click', () => {
+			signupPage.style.display = 'none'
+			dashboard.style.display = 'flex'
+			dashboard();
+			return false;
+		})
+	}
+
 	return false;
 }
 
+
+function dashboard() {
+
+	const scrollContainer = document.querySelector(".dashboard__tools-group");
+
+	scrollContainer.addEventListener("wheel", (evt) => {
+		evt.preventDefault();
+		scrollContainer.scrollLeft += evt.deltaY;
+	});
+}
