@@ -30,7 +30,7 @@ function links() {
 	let login1 = document.querySelector('.login-1')
 	let login2 = document.querySelector('.login-2')
 	let signupPage = document.querySelector('.signup')
-	let targets = document.querySelectorAll('.click-target')
+	
 
 	let arrowLeft = document.querySelector('.arrow-left');
 	
@@ -38,6 +38,7 @@ function links() {
 	let signupNext1 = document.querySelector('.signup__next-1');
 	let signupNext2 = document.querySelector('.signup__next-2');
 
+	let signupBack = document.querySelector('.signup__back');
 	let signupBack1 = document.querySelector('.signup__back-1');
 	let signupBack2 = document.querySelector('.signup__back-2');
 	
@@ -45,9 +46,7 @@ function links() {
 	let signupBlock1 = document.querySelector('.signup-block-1');
 	let signupBlock2 = document.querySelector('.signup-block-2');
 	let signupBlock3 = document.querySelector('.signup-block-3');
-	
-	let signupBack = document.querySelector('.signup__back');
-	
+
 	let progressBar = document.querySelector('.progress-bar');
 
 	let contactsCreate = document.querySelector('.contacts__group-create');
@@ -56,64 +55,92 @@ function links() {
 	let popupGoBack = document.querySelector('.popup-elem__header-goback');
 
 	
-	document.onclick = function(e) {
-	
-		if (!e.target.classList.contains('click-target')) {
-			for (i = 0; i < targets.length; i++) {
-				targets[i].animate([
-					{ 
-						outline: '0.3rem solid',
-						outlineColor: 'green'
-					},
-					{ outlineColor: 'transparent'}
-				], {
-					duration: 700, 
-					iterations: 1
-				});
+	function clickCheck() {
+		document.onclick = function(e) {
+			let targets = document.querySelectorAll('.click-target')
+			if (!e.target.classList.contains('click-target')) {
+				for (i = 0; i < targets.length; i++) {
+					targets[i].animate([
+						{ 
+							outline: '0.3rem solid',
+							outlineColor: 'green'
+						},
+						{ outlineColor: 'transparent'}
+					], {
+						duration: 700, 
+						iterations: 1
+					});
+				}
+			} else {
+				return false;
 			}
 		}
 	}
 
-	signupLink[0].addEventListener('click', function(){
-		login1.style.display = 'none';
-		login2.style.display = 'flex';
-	})
+	clickCheck();
+	signupLink1();
 
-	signupLink[1].addEventListener('click', function(){
-		login2.style.display = 'none';
-		signupPage.style.display = 'flex'
-		signupBlock1.style.display = 'block';
-		progressBar.setAttribute('src', 'images/progress-1.svg');
-	})
+	function signupLink1() {
+		signupLink[0].addEventListener('click', function(){
+			login1.style.display = 'none';
+			login2.style.display = 'flex';
+			signupLink2();
+			return false;
+		})
+	}
 
-	arrowLeft.addEventListener('click', () => {
-		signupBack.classList.remove('signup__back-active');
-		signupBack.classList.remove('click-target');
-		signupNext.classList.remove('signup__next-2');
-		signupNext.classList.add('signup__next-1')
-		signupPage.style.display = 'none'
-		signupBlock2.style.display = 'none';
-		signupBlock3.style.display = 'none';
-		login1.style.display = 'flex';
-		links();
-	})
+	function signupLink2() {
+		signupLink[1].addEventListener('click', function(){
+			login2.style.display = 'none';
+			signupPage.style.display = 'flex'
+			signupBlock1.style.display = 'block';
+			progressBar.setAttribute('src', 'images/progress-1.svg');
+			arrowLeftFunc();
+			signupNext1Func();
+			return false;
+		})
+	}
+	
 
-	if (signupNext1) {
+	function arrowLeftFunc() {
+		let arrowLeft = document.querySelector('.arrow-left');
+
+		arrowLeft.addEventListener('click', () => {
+			signupBack.classList.remove('signup__back-active');
+			signupBack.classList.remove('click-target');
+			signupNext.classList.remove('signup__next-2');
+			signupNext.classList.add('signup__next-1')
+			signupPage.style.display = 'none'
+			signupBlock2.style.display = 'none';
+			signupBlock3.style.display = 'none';
+			login1.style.display = 'flex';
+			return false;
+		})
+	}
+
+	function signupNext1Func() {
+		let signupNext1 = document.querySelector('.signup__next-1');
+
 		signupNext1.addEventListener('click', () => {
 			signupNext.classList.remove('signup__next-1')
-			signupBack.classList.add('signup__back-active');
 			signupBack.classList.add('click-target');
+			signupBack.classList.add('signup__back-active');
 			signupBack.classList.add('signup__back-1');
 			signupNext.classList.add('signup__next-2')
 			progressBar.setAttribute('src', 'images/progress-2.svg');
 			signupBlock1.style.display = 'none';
 			signupBlock3.style.display = 'none';
 			signupBlock2.style.display = 'block';
-			links();
+			arrowLeftFunc();
+			signupBack1Func();
+			signupNext2Func();
+			return false;
 		})
 	}
 
-	if (signupBack1) {
+	function signupBack1Func() {
+		let signupBack1 = document.querySelector('.signup__back-1');
+
 		signupBack1.addEventListener('click', () => {
 			signupBack.classList.remove('signup__back-active');
 			signupBack.classList.remove('click-target');
@@ -124,25 +151,32 @@ function links() {
 			signupBlock3.style.display = 'none';
 			signupBlock2.style.display = 'none';
 			signupBlock1.style.display = 'block';
-			links();
+			signupNext1Func();
+			return false;
 		})
 	}
 
-	if (signupNext2) {
+	function signupNext2Func() {
+		let signupNext2 = document.querySelector('.signup__next-2');
+
 		signupNext2.addEventListener('click', () => {
 			signupBack.classList.remove('signup__back-1');
 			signupBack.classList.add('signup__back-2');
 			signupNext.classList.remove('signup__next-2');
 			signupNext.classList.add('signup__next-3');
 			progressBar.setAttribute('src', 'images/progress-3.svg');
-			// contactsCreate.classList.add('click-target');
 			signupBlock2.style.display = 'none';
 			signupBlock3.style.display = 'block'
-			links();
+			arrowLeftFunc();
+			signupBack2Func();
+			createPopup()
+			return false;
 		})
 	}
 
-	if (signupBack2) {
+	function signupBack2Func() {
+		let signupBack2 = document.querySelector('.signup__back-2');
+		
 		signupBack2.addEventListener('click', () => {
 			signupBack.classList.remove('signup__back-2');
 			signupBack.classList.add('signup__back-1');
@@ -154,22 +188,22 @@ function links() {
 			signupBlock3.style.display = 'none';
 			signupBlock1.style.display = 'none';
 			signupBlock2.style.display = 'block';
-			links();
+			signupBack1Func()
+			signupNext2Func();
+			return false;
 		})
 	}
 
-	contactsCreate.addEventListener('click', () => {
-		popup.style.display = 'block';
-		popupWhite.style.display = 'block'
-	})
-
-	popupGoBack.addEventListener('click', () => {
-		popup.style.display = 'none';
-		popupWhite.style.display = 'none'
-	})
+	function createPopup() {
+		contactsCreate.addEventListener('click', () => {
+			popup.style.display = 'block';
+			popupWhite.style.display = 'block'
+		})
 	
-
-	
-	
+		popupGoBack.addEventListener('click', () => {
+			popup.style.display = 'none';
+			popupWhite.style.display = 'none'
+		})
+	}
 }
 
