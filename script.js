@@ -1,5 +1,5 @@
 window.addEventListener('load', setTime);
-window.addEventListener('load', links);
+window.addEventListener('load', signupBlock);
 
 setInterval(() => {
 	setTime();
@@ -25,18 +25,18 @@ function setElements() {
 	
 }
 
-function links() {
+function signupBlock() {
 	let signupLink = document.querySelectorAll('.links__signup-link');
 	let login1 = document.querySelector('.login-1')
 	let login2 = document.querySelector('.login-2')
 	let signupPage = document.querySelector('.signup')
-	
 
 	let arrowLeft = document.querySelector('.arrow-left');
 	
 	let signupNext = document.querySelector('.signup__next');
 	let signupNext1 = document.querySelector('.signup__next-1');
 	let signupNext2 = document.querySelector('.signup__next-2');
+	let signupNext3 = document.querySelector('.signup__next-3');
 
 	let signupBack = document.querySelector('.signup__back');
 	let signupBack1 = document.querySelector('.signup__back-1');
@@ -57,7 +57,7 @@ function links() {
 	
 	function clickCheck() {
 		document.onclick = function(e) {
-			let targets = document.querySelectorAll('.click-target')
+			targets = document.querySelectorAll('.click-target')
 			if (!e.target.classList.contains('click-target')) {
 				for (i = 0; i < targets.length; i++) {
 					targets[i].animate([
@@ -103,7 +103,7 @@ function links() {
 	
 
 	function arrowLeftFunc() {
-		let arrowLeft = document.querySelector('.arrow-left');
+		arrowLeft = document.querySelector('.arrow-left');
 
 		arrowLeft.addEventListener('click', () => {
 			signupBack.classList.remove('signup__back-active');
@@ -119,7 +119,7 @@ function links() {
 	}
 
 	function signupNext1Func() {
-		let signupNext1 = document.querySelector('.signup__next-1');
+		signupNext1 = document.querySelector('.signup__next-1');
 
 		signupNext1.addEventListener('click', () => {
 			signupNext.classList.remove('signup__next-1')
@@ -139,7 +139,7 @@ function links() {
 	}
 
 	function signupBack1Func() {
-		let signupBack1 = document.querySelector('.signup__back-1');
+		signupBack1 = document.querySelector('.signup__back-1');
 
 		signupBack1.addEventListener('click', () => {
 			signupBack.classList.remove('signup__back-active');
@@ -157,13 +157,14 @@ function links() {
 	}
 
 	function signupNext2Func() {
-		let signupNext2 = document.querySelector('.signup__next-2');
+		signupNext2 = document.querySelector('.signup__next-2');
 
 		signupNext2.addEventListener('click', () => {
 			signupBack.classList.remove('signup__back-1');
 			signupBack.classList.add('signup__back-2');
 			signupNext.classList.remove('signup__next-2');
 			signupNext.classList.add('signup__next-3');
+			signupNext.textContent = "I'm ready!"
 			progressBar.setAttribute('src', 'images/progress-3.svg');
 			signupBlock2.style.display = 'none';
 			signupBlock3.style.display = 'block'
@@ -175,7 +176,7 @@ function links() {
 	}
 
 	function signupBack2Func() {
-		let signupBack2 = document.querySelector('.signup__back-2');
+		signupBack2 = document.querySelector('.signup__back-2');
 		
 		signupBack2.addEventListener('click', () => {
 			signupBack.classList.remove('signup__back-2');
@@ -185,6 +186,7 @@ function links() {
 			signupNext.classList.remove('signup__next-3')
 			signupNext.classList.add('signup__next-2')
 			progressBar.setAttribute('src', 'images/progress-2.svg');
+			signupNext.textContent = "Next"
 			signupBlock3.style.display = 'none';
 			signupBlock1.style.display = 'none';
 			signupBlock2.style.display = 'block';
@@ -205,5 +207,7 @@ function links() {
 			popupWhite.style.display = 'none'
 		})
 	}
+
+	return false;
 }
 
