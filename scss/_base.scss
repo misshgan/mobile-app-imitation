@@ -270,7 +270,7 @@ body {
 .login-1 {
 	background: $login-1-color;
 	padding-top: 10rem;
-	display: flex;
+	display: none;
 	flex-direction: column;
 
 	&__logo {
@@ -853,8 +853,8 @@ body {
 		margin-bottom: 2.4rem;
 
 		img {
-			width: 34.6rem;
-			height: 23rem;
+			width: 33.6rem;
+			height: 22rem;
 		}
 	}
 	&__tools {
@@ -872,13 +872,14 @@ body {
 		}
 
 		img {
-			width: 19.5rem;
-			height: 13.5rem;
+			width: 21.5rem;
+			height: 14.5rem;
 		}
 	}
 	&__tools-group {
 		display: flex;
 		overflow: auto;
+		padding: 2px;
 
 		&::-webkit-scrollbar {
 			display: none;
@@ -887,7 +888,7 @@ body {
 	&__footer {
 		position: relative;
 		z-index: 6;
-		padding: 1.4rem 2.4rem 3rem;
+		padding: 1.4rem 2.4rem 4rem;
 		box-shadow: 0px 2px 20px rgba(69, 74, 82, 0.14);
 		margin-top: auto;
 		display: flex;
@@ -899,7 +900,7 @@ body {
 			width: 85%;
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: 3.4rem;
+			margin-bottom: 2.7rem;
 
 			img {
 				width: 2.8rem;
@@ -914,4 +915,96 @@ body {
 			height: 0.5rem;
 		}
 	}
+}
+
+
+/** NEW CAMPAIGN ********************************************************************** NEW CAMPAIGN **/
+
+
+.new-campaign {
+	display: flex;
+	flex-direction: column;
+
+	.signup__header {
+		position: relative;
+		z-index: 6;
+		padding-top: 8rem;
+	}
+
+	.dashboard__recommend {
+		position: relative;
+		z-index: 6;
+
+		img {
+			width: 33.5rem;
+			height: 13.7rem;
+		}
+	}
+	&__feed {
+		position: relative;
+		z-index: 6;
+		overflow: auto;
+		height: 50rem;
+		width: 93%;
+	}
+	&__block1 {
+	}
+	.signup-block__header {
+		border: none;
+		padding-right: 0;
+
+		&:first-child {
+			padding-top: 1rem;
+		}
+	}
+	.signup-block__header-description {
+	}
+	&__block2 {
+	}
+
+	&__card {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 4rem;
+		padding-right: 0.5rem;
+		
+		margin-bottom: 2rem;
+
+		div {
+			margin-right: 0.75rem;
+		}
+	}
+	&__card-icon {
+		width: 6rem;
+		height: 6rem;
+		margin-right: 1.2rem;
+	}
+	&__card-title {
+		font-weight: 700;
+		font-size: 1.6rem;
+		line-height: 1.31;
+
+		letter-spacing: -0.02em;
+
+		color: #000000;
+		margin-bottom: 0.4rem;
+	}
+	&__card-subtitle {
+		font-weight: 400;
+		font-size: 1.2rem;
+		line-height: 1.42;
+
+		color: #727578;
+	}
+
+	.dashboard__footer {
+		box-shadow: none;
+		padding-bottom: 3rem;
+	}
+}
+
+.right-arrow {
+	width: 2.4rem;
+	height: 2.4rem;
 }

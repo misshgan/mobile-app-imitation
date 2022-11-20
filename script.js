@@ -1,5 +1,6 @@
 window.addEventListener('load', setTime);
 window.addEventListener('load', signupBlock);
+window.addEventListener('load', dashboard);
 
 setInterval(() => {
 	setTime();
@@ -23,9 +24,6 @@ function setTime() {
 	target.innerHTML = `<span>${timeHours}:${timeMinutes}</span>`
 }
 
-function setElements() {
-	
-}
 
 function signupBlock() {
 	document.body.style.display = 'flex'
@@ -286,7 +284,6 @@ function signupBlock() {
 		function eventFunction() {
 			signupPage.style.display = 'none'
 			dashboard.style.display = 'flex'
-			dashboard();
 			signupNext.removeEventListener('click', eventFunction, { once: true })
 			return false;
 		}
@@ -305,20 +302,36 @@ function signupBlock() {
 		}
 		return false;
 	}
-
+	
 	return false;
 }
+
 
 
 function dashboard() {
 
 	const scrollContainer = document.querySelector(".dashboard__tools-group");
+	let newCampaign = document.querySelector('.make-new-campaign');
+	let dashboardPage = document.querySelector('.dashboard');
+	let makeNewCampaignPage = document.querySelector('.new-campaign');
 
 	scrollContainer.addEventListener("wheel", (evt) => {
 		evt.preventDefault();
 		scrollContainer.scrollLeft += evt.deltaY;
 	});
 
+	newCampaignFunc();
 
-
+	function newCampaignFunc() {
+		newCampaign.addEventListener('click', eventFunction, {once: true})
+		function eventFunction() {
+			dashboardPage.style.display = 'none';
+			makeNewCampaignPage.style.display = 'block';
+			newCampaign.removeEventListener('click', eventFunction, {once: true})
+			return false;
+		}
+	}
 }
+
+
+
