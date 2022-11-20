@@ -85,67 +85,90 @@ function signupBlock() {
 	signupLink1();
 
 	function signupLink1() {
-		signupLink[0].addEventListener('click', function(){
+		signupLink[0].addEventListener('click', eventFunction,{ once: true })
+
+		function eventFunction() {
 			login1.style.display = 'none';
 			login2.style.display = 'flex';
 			signupLink2();
-			return false;
-		})
+			signupLink[0].removeEventListener('click', eventFunction,{ once: true })
+		}
+		return false;
 	}
 
 	function signupLink2() {
-		signupLink[1].addEventListener('click', function(){
+		signupLink[1].addEventListener('click', eventFunction, { once: true })
+
+		function eventFunction() {
 			login2.style.display = 'none';
 			signupPage.style.display = 'flex'
 			signupBlock1.style.display = 'block';
 			progressBar.setAttribute('src', 'images/progress-1.svg');
 			arrowLeftFunc();
 			signupNext1Func();
-			return false;
-		})
+			signupLink[1].removeEventListener('click', eventFunction, { once: true })
+		}
+		return false;
 	}
 	
 
 	function arrowLeftFunc() {
-		arrowLeft = document.querySelector('.arrow-left');
+		// arrowLeft = document.querySelector('.arrow-left');
 
-		arrowLeft.addEventListener('click', () => {
+		arrowLeft.addEventListener('click', eventFunction,{ once: true })
+		function eventFunction() {
 			signupBack.classList.remove('signup__back-active');
 			signupBack.classList.remove('click-target');
 			signupNext.classList.remove('signup__next-2');
+			signupNext.classList.remove('signup__next-3');
+			signupNext.textContent = "Next"
 			signupNext.classList.add('signup__next-1')
 			signupPage.style.display = 'none'
 			signupBlock2.style.display = 'none';
 			signupBlock3.style.display = 'none';
 			login1.style.display = 'flex';
+			signupLink1();
+			arrowLeft.removeEventListener('click', eventFunction,{ once: true })
 			return false;
-		})
+		}
+
+		return false;
 	}
 
 	function signupNext1Func() {
-		signupNext1 = document.querySelector('.signup__next-1');
+		// signupNext1 = document.querySelector('.signup__next-1');
 
-		signupNext1.addEventListener('click', () => {
-			signupNext.classList.remove('signup__next-1')
-			signupBack.classList.add('click-target');
-			signupBack.classList.add('signup__back-active');
-			signupBack.classList.add('signup__back-1');
-			signupNext.classList.add('signup__next-2')
-			progressBar.setAttribute('src', 'images/progress-2.svg');
+		signupNext.addEventListener('click', eventFunction, { once: true });
+		function eventFunction() {
 			signupBlock1.style.display = 'none';
 			signupBlock3.style.display = 'none';
 			signupBlock2.style.display = 'block';
-			arrowLeftFunc();
+			signupNext.classList.remove('signup__next-1')
+			signupNext.classList.add('signup__next-2')
+			signupBack.classList.add('click-target');
+			signupBack.classList.add('signup__back-active');
+			signupBack.classList.add('signup__back-1');
+			progressBar.setAttribute('src', 'images/progress-2.svg');
 			signupBack1Func();
 			signupNext2Func();
+			signupNext.removeEventListener('click', eventFunction, { once: true });
 			return false;
-		})
+		}
+
+		arrowLeft.addEventListener('click', ifArrow, { once: true });
+		function ifArrow() {
+			signupNext.removeEventListener('click', eventFunction, { once: true });
+			arrowLeft.removeEventListener('click', ifArrow, { once: true });
+			return false;
+		}
+		return false;
 	}
 
 	function signupBack1Func() {
-		signupBack1 = document.querySelector('.signup__back-1');
+		// signupBack1 = document.querySelector('.signup__back-1');
 
-		signupBack1.addEventListener('click', () => {
+		signupBack.addEventListener('click', eventFunction,{ once: true })
+		function eventFunction() {
 			signupBack.classList.remove('signup__back-active');
 			signupBack.classList.remove('click-target');
 			signupBack.classList.remove('signup__back-1');
@@ -156,74 +179,128 @@ function signupBlock() {
 			signupBlock2.style.display = 'none';
 			signupBlock1.style.display = 'block';
 			signupNext1Func();
+			signupBack.removeEventListener('click', eventFunction,{ once: true })
+			signupNext.removeEventListener('click', ifNext, { once: true })
 			return false;
-		})
+		}
+
+		signupNext.addEventListener('click', ifNext, { once: true })
+		function ifNext() {
+			signupBack.removeEventListener('click', eventFunction,{ once: true })
+			signupNext.removeEventListener('click', ifNext, { once: true })
+			return false;
+		}
+
+		return false;
 	}
 
 	function signupNext2Func() {
-		signupNext2 = document.querySelector('.signup__next-2');
 
-		signupNext2.addEventListener('click', () => {
+		signupNext.addEventListener('click', eventFunction,{ once: true })
+		function eventFunction() {
 			signupBack.classList.remove('signup__back-1');
-			signupBack.classList.add('signup__back-2');
 			signupNext.classList.remove('signup__next-2');
+			signupBack.classList.add('signup__back-2');
 			signupNext.classList.add('signup__next-3');
 			signupNext.textContent = "I'm ready!"
 			progressBar.setAttribute('src', 'images/progress-3.svg');
+			signupBlock1.style.display = 'none';
 			signupBlock2.style.display = 'none';
 			signupBlock3.style.display = 'block'
-			arrowLeftFunc();
 			signupBack2Func();
 			createPopup();
 			signupNext3Func();
+			signupNext.removeEventListener('click', eventFunction,{ once: true })
 			return false;
-		})
+		}
+
+		signupBack.addEventListener('click', ifGoBack, { once: true })
+		arrowLeft.addEventListener('click', ifArrow, { once: true });
+		function ifGoBack() {
+			signupNext.removeEventListener('click', eventFunction,{ once: true })
+			signupBack.removeEventListener('click', ifGoBack, { once: true })
+			return false;
+		}
+		function ifArrow() {
+			signupNext.removeEventListener('click', eventFunction,{ once: true })
+			arrowLeft.removeEventListener('click', ifArrow, { once: true })
+			return false;
+		}
+		return false;
 	}
 
 	function signupBack2Func() {
-		signupBack2 = document.querySelector('.signup__back-2');
+		// signupBack2 = document.querySelector('.signup__back-2');
 		
-		signupBack2.addEventListener('click', () => {
-			signupBack.classList.remove('signup__back-2');
-			signupBack.classList.add('signup__back-1');
-			signupBack.classList.add('signup__back-active');
-			signupBack.classList.add('click-target');
-			signupNext.classList.remove('signup__next-3')
-			signupNext.classList.add('signup__next-2')
-			progressBar.setAttribute('src', 'images/progress-2.svg');
-			signupNext.textContent = "Next"
+		signupBack.addEventListener('click', eventFunction,{ once: true })
+		function eventFunction() {
 			signupBlock3.style.display = 'none';
 			signupBlock1.style.display = 'none';
 			signupBlock2.style.display = 'block';
+			signupBack.classList.remove('signup__back-2');
+			signupBack.classList.add('signup__back-1');
+			signupBack.classList.add('signup__back-active');
+			signupNext.classList.remove('signup__next-3')
+			signupNext.classList.remove('signup__next-1')
+			signupNext.classList.add('signup__next-2')
+			progressBar.setAttribute('src', 'images/progress-2.svg');
+			signupNext.textContent = "Next"
 			signupBack1Func()
-			signupNext2Func();
+			signupNext2Func()
+			signupBack.removeEventListener('click', eventFunction,{ once: true })
+			signupNext.removeEventListener('click', ifNext, { once: true })
 			return false;
-		})
+		}
+
+		signupNext.addEventListener('click', ifNext, { once: true })
+		function ifNext() {
+			signupBack.removeEventListener('click', eventFunction,{ once: true })
+			signupNext.removeEventListener('click', ifNext, { once: true })
+			return false;
+		}
+		return false;
 	}
 
 	function createPopup() {
 		contactsCreate.addEventListener('click', () => {
 			popup.style.display = 'block';
 			popupWhite.style.display = 'block'
-			return false;
+			
 		})
 	
 		popupGoBack.addEventListener('click', () => {
 			popup.style.display = 'none';
 			popupWhite.style.display = 'none'
-			return false;
+			
 		})
+		return false;
 	}
 
 	function signupNext3Func() {
-		signupNext3 = document.querySelector('.signup__next-3');
+		// signupNext3 = document.querySelector('.signup__next-3');
 
-		signupNext3.addEventListener('click', () => {
+		signupNext.addEventListener('click', eventFunction, { once: true });
+		function eventFunction() {
 			signupPage.style.display = 'none'
 			dashboard.style.display = 'flex'
 			dashboard();
+			signupNext.removeEventListener('click', eventFunction, { once: true })
 			return false;
-		})
+		}
+
+		signupBack.addEventListener('click', ifGoBack, { once: true })
+		arrowLeft.addEventListener('click', ifArrow, { once: true });
+		function ifGoBack() {
+			signupNext.removeEventListener('click', eventFunction,{ once: true })
+			signupBack.removeEventListener('click', ifGoBack, { once: true })
+			return false;
+		}
+		function ifArrow() {
+			signupNext.removeEventListener('click', eventFunction,{ once: true })
+			arrowLeft.removeEventListener('click', ifArrow, { once: true })
+			return false;
+		}
+		return false;
 	}
 
 	return false;
@@ -238,4 +315,7 @@ function dashboard() {
 		evt.preventDefault();
 		scrollContainer.scrollLeft += evt.deltaY;
 	});
+
+
+
 }
