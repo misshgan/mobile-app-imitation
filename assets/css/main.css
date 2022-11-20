@@ -778,3 +778,40 @@ body {
   width: 2.4rem;
   height: 2.4rem;
 }
+
+/** GREETING CAMPAIGN ********************************************************************** GREETING CAMPAIGN **/
+.greeting-camp {
+  display: none;
+  flex-direction: column;
+}
+.greeting-camp .signup__header {
+  padding-top: 8rem;
+}
+.greeting-camp__body {
+  padding: 0 4rem;
+}
+.greeting-camp .contacts__item {
+  display: flex;
+  justify-content: space-between;
+}
+.greeting-camp .contacts__item div {
+  display: flex;
+  align-items: center;
+}
+
+.img-edit {
+  width: 6rem;
+  height: 2.9rem;
+  margin-right: 0.6rem;
+}
+
+.img-check {
+  width: 2.9rem;
+  height: 2.9rem;
+  margin-right: 1rem;
+}
+
+.img-arrow-down_up {
+  width: 2.4rem;
+  height: 2.4rem;
+}

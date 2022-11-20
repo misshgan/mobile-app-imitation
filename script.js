@@ -315,6 +315,10 @@ function dashboard() {
 	let dashboardPage = document.querySelector('.dashboard');
 	let makeNewCampaignPage = document.querySelector('.new-campaign');
 	let newCampaignBack = document.querySelector('.new-campaign-back');
+	let greetingCampaignArrowLeft = document.querySelector('.greeting-left');
+	let greetingCampaignStartBtn = document.querySelector('.new-greeting-campaign')
+	let greetingCampaignPage = document.querySelector('.greeting-camp')
+
 
 	scrollContainer.addEventListener("wheel", (evt) => {
 		evt.preventDefault();
@@ -333,6 +337,7 @@ function dashboard() {
 				dashboardPage.style.display = 'none';
 				makeNewCampaignPage.style.display = 'block';
 				newCampaignBackFunc();
+				greetingCampaignStartBtnFunc()
 				newCampaignBtn.removeEventListener('click', eventFunction, {once: true})
 				return false;
 			}
@@ -349,6 +354,39 @@ function dashboard() {
 				return false;
 			}
 		}
+
+		function greetingCampaignStartBtnFunc() {
+			greetingCampaignStartBtn.addEventListener('click', eventFunction, {once: true})
+
+			function eventFunction() {
+				makeNewCampaignPage.style.display = 'none';
+				greetingCampaignPage.style.display = 'flex';
+				greetingCampaignArrowLeftFunc()
+				greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
+				return false;
+			}
+
+			greetingCampaignArrowLeft.addEventListener('click', ifGreetingArrow, {once: true})
+			function ifGreetingArrow() {
+				greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifGreetingArrow, {once: true})
+				return false;
+			}
+		}
+
+		function greetingCampaignArrowLeftFunc() {
+			greetingCampaignArrowLeft.addEventListener('click', eventFunction, {once: true})
+
+			function eventFunction() {
+				greetingCampaignPage.style.display = 'none';
+				makeNewCampaignPage.style.display = 'flex';
+				greetingCampaignStartBtnFunc()
+				greetingCampaignArrowLeft.removeEventListener('click', eventFunction, {once: true});
+				return false;
+			}
+		}
+
+
 
 		
 	}
