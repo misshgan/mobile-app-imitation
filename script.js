@@ -1,12 +1,13 @@
 window.addEventListener('load', setTime);
 window.addEventListener('load', signupBlock);
-window.addEventListener('load', dashboard);
 
 setInterval(() => {
 	setTime();
 }, 20000);
 
 function setTime() {
+	
+
 	let target = document.querySelector('.info-bar__left');
 	let timeHours = new Date().getHours();
 	let timeMinutes = new Date().getMinutes();
@@ -27,6 +28,8 @@ function setElements() {
 }
 
 function signupBlock() {
+	document.body.style.display = 'flex'
+
 	let signupLink = document.querySelectorAll('.links__signup-link');
 	let login1 = document.querySelector('.login-1')
 	let login2 = document.querySelector('.login-2')
