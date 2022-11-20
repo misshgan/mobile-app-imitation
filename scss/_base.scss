@@ -270,7 +270,7 @@ body {
 .login-1 {
 	background: $login-1-color;
 	padding-top: 10rem;
-	display: none;
+	display: flex;
 	flex-direction: column;
 
 	&__logo {
@@ -922,7 +922,7 @@ body {
 
 
 .new-campaign {
-	display: flex;
+	display: none;
 	flex-direction: column;
 
 	.signup__header {

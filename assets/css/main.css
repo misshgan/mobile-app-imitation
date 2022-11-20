@@ -180,7 +180,7 @@ body {
 .login-1 {
   background: #3B79D8;
   padding-top: 10rem;
-  display: none;
+  display: flex;
   flex-direction: column;
 }
 .login-1__logo {
@@ -707,7 +707,7 @@ body {
 
 /** NEW CAMPAIGN ********************************************************************** NEW CAMPAIGN **/
 .new-campaign {
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 .new-campaign .signup__header {

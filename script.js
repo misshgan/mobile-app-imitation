@@ -311,9 +311,10 @@ function signupBlock() {
 function dashboard() {
 
 	const scrollContainer = document.querySelector(".dashboard__tools-group");
-	let newCampaign = document.querySelector('.make-new-campaign');
+	let newCampaignBtn = document.querySelector('.make-new-campaign');
 	let dashboardPage = document.querySelector('.dashboard');
 	let makeNewCampaignPage = document.querySelector('.new-campaign');
+	let newCampaignBack = document.querySelector('.new-campaign-back');
 
 	scrollContainer.addEventListener("wheel", (evt) => {
 		evt.preventDefault();
@@ -323,13 +324,33 @@ function dashboard() {
 	newCampaignFunc();
 
 	function newCampaignFunc() {
-		newCampaign.addEventListener('click', eventFunction, {once: true})
-		function eventFunction() {
-			dashboardPage.style.display = 'none';
-			makeNewCampaignPage.style.display = 'block';
-			newCampaign.removeEventListener('click', eventFunction, {once: true})
-			return false;
+		newCampaignBtnFunc();
+
+		function newCampaignBtnFunc() {
+			newCampaignBtn.addEventListener('click', eventFunction, {once: true})
+
+			function eventFunction() {
+				dashboardPage.style.display = 'none';
+				makeNewCampaignPage.style.display = 'block';
+				newCampaignBackFunc();
+				newCampaignBtn.removeEventListener('click', eventFunction, {once: true})
+				return false;
+			}
 		}
+
+		function newCampaignBackFunc() {
+			newCampaignBack.addEventListener('click', eventFunction, {once: true});
+
+			function eventFunction() {
+				dashboardPage.style.display = 'flex';
+				makeNewCampaignPage.style.display = 'none';
+				newCampaignBtnFunc();
+				newCampaignBack.removeEventListener('click', eventFunction, {once: true});
+				return false;
+			}
+		}
+
+		
 	}
 }
 
