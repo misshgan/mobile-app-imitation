@@ -318,6 +318,8 @@ function dashboard() {
 	let greetingCampaignArrowLeft = document.querySelector('.greeting-left');
 	let greetingCampaignStartBtn = document.querySelector('.new-greeting-campaign')
 	let greetingCampaignPage = document.querySelector('.greeting-camp')
+	let imgCheck = document.querySelectorAll('.img-check');
+	let imgArrowDownUp = document.querySelectorAll('.img-arrow-down_up')
 
 
 	scrollContainer.addEventListener("wheel", (evt) => {
@@ -362,6 +364,8 @@ function dashboard() {
 				makeNewCampaignPage.style.display = 'none';
 				greetingCampaignPage.style.display = 'flex';
 				greetingCampaignArrowLeftFunc()
+				imgCheckFunc();
+				imgArrowDownUpFunc()
 				greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
 				return false;
 			}
@@ -384,6 +388,38 @@ function dashboard() {
 				greetingCampaignArrowLeft.removeEventListener('click', eventFunction, {once: true});
 				return false;
 			}
+		}
+
+		
+
+		function imgCheckFunc() {
+
+			imgCheck.forEach(element => {
+				element.addEventListener('click', () => {
+					if (element.classList.contains('checked')) {
+						element.setAttribute('src', 'images/greetings-campaign/unchecked.svg');
+						element.classList.remove('checked')
+					} else if (!element.classList.contains('checked')) {
+						element.setAttribute('src', 'images/greetings-campaign/checked.svg');
+						element.classList.add('checked')
+					}
+				})
+			});
+		}
+
+		function imgArrowDownUpFunc() {
+
+			imgArrowDownUp.forEach(element => {
+				element.addEventListener('click', () => {
+					if (!element.classList.contains('arrow-active')) {
+						element.classList.add('arrow-active');
+						element.setAttribute('src', 'images/greetings-campaign/up.svg')
+					} else if(element.classList.contains('arrow-active')) {
+						element.classList.remove('arrow-active')
+						element.setAttribute('src', 'images/greetings-campaign/down.svg')
+					}
+				})
+			})
 		}
 
 
