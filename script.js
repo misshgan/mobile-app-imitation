@@ -320,6 +320,11 @@ function dashboard() {
 	let greetingCampaignPage = document.querySelector('.greeting-camp')
 	let imgCheck = document.querySelectorAll('.img-check');
 	let imgArrowDownUp = document.querySelectorAll('.img-arrow-down_up')
+	let greetingCampaignNext1 = document.querySelector('.greeting-next1')
+	let progressBar = document.querySelectorAll('.progress-bar');
+
+	let greetingPage1 = document.querySelector('.greeting-page1')
+	let greetingPage2 = document.querySelector('.greeting-page2')
 
 
 	scrollContainer.addEventListener("wheel", (evt) => {
@@ -366,22 +371,25 @@ function dashboard() {
 				greetingCampaignArrowLeftFunc()
 				imgCheckFunc();
 				imgArrowDownUpFunc()
+				greetingCampaignNext1Func();
 				greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
-				return false;
 			}
 
-			greetingCampaignArrowLeft.addEventListener('click', ifGreetingArrow, {once: true})
-			function ifGreetingArrow() {
+			newCampaignBack.addEventListener('click', ifArrowLeft, {once: true});
+			function ifArrowLeft() {
 				greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
-				greetingCampaignArrowLeft.removeEventListener('click', ifGreetingArrow, {once: true})
+				newCampaignBack.removeEventListener('click', eventFunction, {once: true});
 				return false;
 			}
 		}
-
+		
 		function greetingCampaignArrowLeftFunc() {
 			greetingCampaignArrowLeft.addEventListener('click', eventFunction, {once: true})
 
 			function eventFunction() {
+				greetingPage1.style.display = 'block';
+				greetingPage2.style.display = 'none'
+				progressBar[1].setAttribute('src', 'images/progress-1.svg')
 				greetingCampaignPage.style.display = 'none';
 				makeNewCampaignPage.style.display = 'flex';
 				greetingCampaignStartBtnFunc()
@@ -391,7 +399,6 @@ function dashboard() {
 		}
 
 		
-
 		function imgCheckFunc() {
 
 			imgCheck.forEach(element => {
@@ -420,6 +427,26 @@ function dashboard() {
 					}
 				})
 			})
+		}
+
+		
+		function greetingCampaignNext1Func() {
+
+			greetingCampaignNext1.addEventListener('click', eventFunction, {once: true})
+			function eventFunction() {
+				progressBar[1].removeAttribute('src')
+				progressBar[1].setAttribute('src', 'images/progress-2.svg')
+				greetingPage1.style.display = 'none';
+				greetingPage2.style.display = 'block'
+				greetingCampaignNext1.removeEventListener('click', eventFunction, {once: true})
+			}
+
+			greetingCampaignArrowLeft.addEventListener('click', ifArrow, {once: true})
+			function ifArrow() {
+				greetingCampaignNext1.removeEventListener('click', eventFunction, {once: true})
+				greetingCampaignArrowLeft.removeEventListener('click', eventFunction, {once: true})
+			}
+
 		}
 
 
