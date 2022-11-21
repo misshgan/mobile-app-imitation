@@ -21,6 +21,11 @@ html {
   font-size: 62.5% !important;
   scroll-behavior: smooth;
 }
+@media (min-height: 1000px) {
+  html {
+    font-size: 70% !important;
+  }
+}
 @media (max-height: 900px) {
   html {
     font-size: 60% !important;
