@@ -21,49 +21,34 @@ html {
   font-size: 62.5% !important;
   scroll-behavior: smooth;
 }
-@media only screen and (max-width: 75em) {
-  html {
-    font-size: 56.25% !important;
-  }
-}
-@media only screen and (max-width: 56.25em) {
-  html {
-    font-size: 50% !important;
-  }
-}
-@media only screen and (max-width: 50em) {
-  html {
-    font-size: 43% !important;
-  }
-}
 @media (max-height: 900px) {
   html {
-    font-size: 40% !important;
+    font-size: 60% !important;
   }
 }
 @media (max-height: 850px) {
   html {
-    font-size: 39% !important;
+    font-size: 55% !important;
   }
 }
 @media (max-height: 800px) {
   html {
-    font-size: 38% !important;
+    font-size: 50% !important;
   }
 }
-@media only screen and (max-width: 43.7em) {
+@media (max-height: 750px) {
   html {
-    font-size: 37.5% !important;
+    font-size: 45% !important;
   }
 }
-@media only screen and (max-width: 37.5em) {
+@media (max-height: 700px) {
   html {
-    font-size: 31.25% !important;
+    font-size: 40% !important;
   }
 }
-@media only screen and (min-width: 112.5em) {
+@media (max-height: 600px) {
   html {
-    font-size: 75% !important;
+    font-size: 35% !important;
   }
 }
 

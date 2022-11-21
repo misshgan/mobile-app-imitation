@@ -92,41 +92,65 @@ html {
 	// This defines what 1 rem is 
 	font-size: 62.5% !important; // 1rem = 10px; 10px/16px = 62.5%
 
-	@include respond(1200px) {
-		font-size: 56.25% !important; // 1 rem = 9 px; 9/16px = 56.25%
-	}
+	// @include respond(1200px) {
+	// 	font-size: 60% !important; 
+	// }
 
-	@include respond(900px) {
-		font-size: 50% !important; // 1 rem = 8px; 8/16px = 50% 
-	}
+	// @include respond(900px) {
+	// 	font-size: 55% !important; // 1 rem = 8px; 8/16px = 50% 
+	// }
 
-	@include respond(800px) {
-		font-size: 43% !important; // 1rem = 7px; 7/16 = 43%;
-	}
+	// @include respond(800px) {
+	// 	font-size: 43% !important; // 1rem = 7px; 7/16 = 43%;
+	// }
 
 	@media (max-height: 900px) {
-		font-size: 40% !important;
+		font-size: 60% !important;
 	}
 
 	@media (max-height: 850px) {
-		font-size: 39% !important;
+		font-size: 55% !important;
 	}
 
 	@media (max-height: 800px) {
-		font-size: 38% !important;
+		font-size: 50% !important;
 	}
 
-	@include respond(700px) {
-		font-size: 37.5% !important; // 1rem = 6px; 6/16 = 37.5%
+	@media (max-height: 750px) {
+		font-size: 45% !important;
 	}
 
-	@include respond(600px) {
-		font-size: 31.25% !important; // 1rem = 5px; 5/16 = 31.25%;
+	@media (max-height: 700px) {
+		font-size: 40% !important;
 	}
 
-	@include respond(big-desktop) {
-		font-size: 75% !important; // 1rem = 12px; 12/16px = 75%
+	@media (max-height: 600px) {
+		font-size: 35% !important;
 	}
+
+	// @include respond(700px) {
+	// 	font-size: 50% !important; // 1rem = 6px; 6/16 = 37.5%
+	// }
+
+	// @include respond(600px) {
+	// 	font-size: 31.25% !important; // 1rem = 5px; 5/16 = 31.25%;
+	// }
+
+	// @media (max-width: 450px) {
+	// 	font-size: 55% !important;
+	// }
+
+		// @media (max-width: 400px) {
+		// 	font-size: 50% !important;
+		// }
+
+	// @media (max-width: 350px) {
+	// 	font-size: 45% !important;
+	// }
+
+	// @include respond(big-desktop) {
+	// 	font-size: 75% !important; // 1rem = 12px; 12/16px = 75%
+	// }
 
 	scroll-behavior: smooth;
 }
