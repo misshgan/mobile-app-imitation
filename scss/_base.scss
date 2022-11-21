@@ -302,7 +302,7 @@ body {
 .login-1 {
 	background: $login-1-color;
 	padding-top: 10rem;
-	display: flex;
+	display: none;
 	flex-direction: column;
 
 	&__logo {
@@ -1044,7 +1044,7 @@ body {
 
 
 .greeting-camp {
-	display: none;
+	display: flex;
 	flex-direction: column;
 	
 	.greeting-text {
@@ -1119,9 +1119,84 @@ body {
 	height: 2.4rem;
 }
 
+.greeting-page1 {
+	display: none;
+}
+
 
 /** GREETING CAMPAIGN PAGE2-2********************************************************************** GREETING CAMPAIGN PAGE-2 **/
 
 .greeting-page2 {
-	display: none;
+	display: block;
+	position: relative;
+		z-index: 6;
+	
+	.greeting__search {
+		width: 100%;
+		height: 4.4rem;
+		padding: 0 4rem;
+		margin:  1rem 0 1.4rem;
+	}
+
+	.signup-block__header {
+	}
+	&__recipients {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow: auto;
+		margin-left: 4rem;
+		margin-right: 2.5rem;
+
+		img {
+			height: 3.5rem;
+			margin-right: 0.3rem;
+		}
+	}
+
+	&__recipients::-webkit-scrollbar {
+		display: none;
+	}
+	&__names {
+		padding: 1rem 2.4rem 0;
+		overflow: auto;
+		height: 40rem;
+	}
+
+	&__names::-webkit-scrollbar {
+		display: none;
+	}
+	&__name {
+		border-top: 1px solid #D3D7DB;
+		padding: 1.25rem 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		div {
+			display: flex;
+			align-items: center;
+		}
+
+		span {
+			font-weight: 500;
+			font-size: 1.4rem;
+			line-height: 1.33;
+			letter-spacing: -0.02em;
+
+			color: #000000;
+		}
+
+		img:last-child {
+			width: 2.9rem;
+			height: 2.9rem;
+			margin-left: 1.4rem;
+		}
+
+		img:not(:last-child) {
+			width: 2rem;
+			height: 2rem;
+			margin-left: 0.6rem;
+		}
+	}
 }
+
