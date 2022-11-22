@@ -389,6 +389,7 @@ function dashboard() {
 				imgArrowDownUpFunc()
 				greetingCampaignNext1Func();
 				greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
+				newCampaignBack.removeEventListener('click', eventFunction, {once: true});
 			}
 
 			newCampaignBack.addEventListener('click', ifArrowLeft, {once: true});
@@ -406,9 +407,12 @@ function dashboard() {
 				greetingPage1.style.display = 'block';
 				greetingPage2.style.display = 'none'
 				greetingPage3.style.display = 'none'
+				greetingCampaignNext.textContent = 'Next'
 				progressBar[1].setAttribute('src', 'images/progress-1.svg')
 				greetingCampaignPage.style.display = 'none';
 				makeNewCampaignPage.style.display = 'flex';
+				footerBack.classList.remove('click-target')
+				footerBack.classList.remove('signup__back-active')
 				greetingCampaignStartBtnFunc()
 				greetingCampaignArrowLeft.removeEventListener('click', eventFunction, {once: true});
 				return false;
@@ -444,12 +448,16 @@ function dashboard() {
 					}
 				}
 
+				greetingCampaignNext.addEventListener('click', ifGoNext, {once: true})
+				function ifGoNext() {
+					element.removeEventListener('click', eventFunction);
+				}
+
 				greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true})
 				function ifArrowLeft() {
 					element.removeEventListener('click', eventFunction);
 					greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true})
 				}
-
 			})
 		}
 
@@ -489,19 +497,20 @@ function dashboard() {
 				greetingPage2.style.display = 'none'
 				greetingCampaignNext1Func()
 				footerBack.removeEventListener('click', eventFunction, {once:true});
+				greetingCampaignNext.removeEventListener('click', ifGoNext, {once:true});
 			}
 
 			greetingCampaignNext.addEventListener('click', ifGoNext, {once:true});
 			function ifGoNext() {
 				footerBack.removeEventListener('click', eventFunction, {once:true});
 				greetingCampaignNext.removeEventListener('click', ifGoNext, {once:true});
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 
 			greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true});
 			function ifArrowLeft() {
-				footerBack.classList.remove('click-target')
-				footerBack.classList.remove('signup__back-active')
 				footerBack.removeEventListener('click', eventFunction, {once:true});
+				greetingCampaignNext.removeEventListener('click', ifGoNext, {once:true});
 				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 		}
@@ -517,20 +526,22 @@ function dashboard() {
 				greetingCampaignNext.textContent = 'Save & Send'
 				footerBack2Func();
 				greetingCampaignNext3Func();
+				imgArrowDownUpFunc()
 				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
+				footerBack.removeEventListener('click', ifGoBack, {once: true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 
 			footerBack.addEventListener('click', ifGoBack, {once: true})
 			function ifGoBack() {
 				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
 				footerBack.removeEventListener('click', ifGoBack, {once: true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
-
 
 			greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true});
 			function ifArrowLeft() {
-				footerBack.classList.remove('click-target')
-				footerBack.classList.remove('signup__back-active')
+				footerBack.removeEventListener('click', ifGoBack, {once: true})
 				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
 				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
@@ -548,17 +559,21 @@ function dashboard() {
 				greetingCampaignNext2Func()
 				footerBack1Func();
 				footerBack.removeEventListener('click', eventFunction, {once:true})
+				greetingCampaignNext.removeEventListener('click', ifGoNext, {once:true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 
 			greetingCampaignNext.addEventListener('click', ifGoNext, {once:true})
 			function ifGoNext() {
 				footerBack.removeEventListener('click', eventFunction, {once:true})
 				greetingCampaignNext.removeEventListener('click', ifGoNext, {once:true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 
 			greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true});
 			function ifArrowLeft() {
 				footerBack.removeEventListener('click', eventFunction, {once:true})
+				greetingCampaignNext.removeEventListener('click', ifGoNext, {once:true})
 				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 		}
@@ -573,24 +588,33 @@ function dashboard() {
 
 				makeNewCampaignPage.style.display = 'none'
 				greetingCampaignPage.style.display = 'none'
+				greetingPage3.style.display = 'none'
+				greetingPage2.style.display = 'none'
+				greetingPage1.style.display = 'block';
 				dashboardPage.style.display = 'flex'
+				greetingCampaignNext.textContent = 'Next'
+				progressBar[1].setAttribute('src', 'images/progress-1.svg')
+				footerBack.classList.remove('click-target')
+				footerBack.classList.remove('signup__back-active')
 				newCampaignFunc();
 				
 				greetingCampaignNext.removeEventListener('click', eventFunction, {once:true})
+				footerBack.removeEventListener('click', ifGoBack, {once: true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 
 			footerBack.addEventListener('click', ifGoBack, {once: true})
 			function ifGoBack() {
 				greetingCampaignNext.removeEventListener('click', eventFunction, {once:true})
 				footerBack.removeEventListener('click', ifGoBack, {once: true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 
 			greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true});
 			function ifArrowLeft() {
-				footerBack.classList.remove('click-target')
-				footerBack.classList.remove('signup__back-active')
 				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
 				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
+				footerBack.removeEventListener('click', ifGoBack, {once: true})
 			}
 		}
 
