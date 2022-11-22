@@ -302,7 +302,7 @@ body {
 .login-1 {
 	background: $login-1-color;
 	padding-top: 10rem;
-	display: none;
+	display: flex;
 	flex-direction: column;
 
 	&__logo {
@@ -1044,7 +1044,7 @@ body {
 
 
 .greeting-camp {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	
 	.greeting-text {
@@ -1120,14 +1120,18 @@ body {
 }
 
 .greeting-page1 {
-	display: none;
+	display: block;
+
+	.contacts {
+		height: 46rem;
+	}
 }
 
 
 /** GREETING CAMPAIGN PAGE2-2********************************************************************** GREETING CAMPAIGN PAGE-2 **/
 
 .greeting-page2 {
-	display: block;
+	display: none;
 	position: relative;
 		z-index: 6;
 	
@@ -1200,3 +1204,34 @@ body {
 	}
 }
 
+
+/** GREETING CAMPAIGN PAGE2-3 ********************************************************************** GREETING CAMPAIGN PAGE-3 **/
+
+
+
+.greeting-page3 {
+	display: none;
+
+	.img-recipients {
+		width: 10.6rem;
+		height: 2.9rem;
+		margin-right: 0.5rem;
+	}
+
+	.contacts {
+		height: 51rem;
+	}
+
+	.greeting-text {
+		div {
+			margin-top: 2rem;
+			padding-top: 1.6rem;
+			border-top: 1px solid #D3D7DB;
+
+			img {
+				
+				height: 2.9rem;
+			}
+		}
+	}
+}

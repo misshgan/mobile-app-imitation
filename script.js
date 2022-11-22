@@ -312,19 +312,35 @@ function dashboard() {
 
 	const scrollContainer = document.querySelector(".dashboard__tools-group");
 	let newCampaignBtn = document.querySelector('.make-new-campaign');
+
 	let dashboardPage = document.querySelector('.dashboard');
 	let makeNewCampaignPage = document.querySelector('.new-campaign');
-	let newCampaignBack = document.querySelector('.new-campaign-back');
-	let greetingCampaignArrowLeft = document.querySelector('.greeting-left');
-	let greetingCampaignStartBtn = document.querySelector('.new-greeting-campaign')
 	let greetingCampaignPage = document.querySelector('.greeting-camp')
+
+	let newCampaignBack = document.querySelector('.new-campaign-back');
+
+	let greetingCampaignArrowLeft = document.querySelector('.greeting-left');
+
+	let greetingCampaignStartBtn = document.querySelector('.new-greeting-campaign')
+	
+
 	let imgCheck = document.querySelectorAll('.img-check');
 	let imgArrowDownUp = document.querySelectorAll('.img-arrow-down_up')
+
+	let greetingCampaignNext = document.querySelector('.greeting-next')
 	let greetingCampaignNext1 = document.querySelector('.greeting-next1')
+	let greetingCampaignNext2 = document.querySelector('.greeting-next2')
+
+	let footerBack = document.querySelector('.greeting-footer-back')
+	let footerBack1 = document.querySelector('.footer-back1')
+
 	let progressBar = document.querySelectorAll('.progress-bar');
 
 	let greetingPage1 = document.querySelector('.greeting-page1')
 	let greetingPage2 = document.querySelector('.greeting-page2')
+	let greetingPage3 = document.querySelector('.greeting-page3')
+
+
 
 
 	scrollContainer.addEventListener("wheel", (evt) => {
@@ -389,6 +405,7 @@ function dashboard() {
 			function eventFunction() {
 				greetingPage1.style.display = 'block';
 				greetingPage2.style.display = 'none'
+				greetingPage3.style.display = 'none'
 				progressBar[1].setAttribute('src', 'images/progress-1.svg')
 				greetingCampaignPage.style.display = 'none';
 				makeNewCampaignPage.style.display = 'flex';
@@ -398,7 +415,6 @@ function dashboard() {
 			}
 		}
 
-		
 		function imgCheckFunc() {
 
 			imgCheck.forEach(element => {
@@ -417,7 +433,8 @@ function dashboard() {
 		function imgArrowDownUpFunc() {
 
 			imgArrowDownUp.forEach(element => {
-				element.addEventListener('click', () => {
+				element.addEventListener('click', eventFunction);
+				function eventFunction() {
 					if (!element.classList.contains('arrow-active')) {
 						element.classList.add('arrow-active');
 						element.setAttribute('src', 'images/greetings-campaign/up.svg')
@@ -425,29 +442,169 @@ function dashboard() {
 						element.classList.remove('arrow-active')
 						element.setAttribute('src', 'images/greetings-campaign/down.svg')
 					}
-				})
+				}
+
+				greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true})
+				function ifArrowLeft() {
+					element.removeEventListener('click', eventFunction);
+					greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true})
+				}
+
 			})
 		}
 
 		
 		function greetingCampaignNext1Func() {
 
-			greetingCampaignNext1.addEventListener('click', eventFunction, {once: true})
+			greetingCampaignNext.addEventListener('click', eventFunction, {once: true})
 			function eventFunction() {
 				progressBar[1].removeAttribute('src')
 				progressBar[1].setAttribute('src', 'images/progress-2.svg')
+				footerBack.classList.add('click-target')
+				footerBack.classList.add('signup__back-active')
 				greetingPage1.style.display = 'none';
 				greetingPage2.style.display = 'block'
-				greetingCampaignNext1.removeEventListener('click', eventFunction, {once: true})
+				footerBack1Func();
+				greetingCampaignNext2Func()
+				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
 			}
 
 			greetingCampaignArrowLeft.addEventListener('click', ifArrow, {once: true})
 			function ifArrow() {
-				greetingCampaignNext1.removeEventListener('click', eventFunction, {once: true})
+				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
 				greetingCampaignArrowLeft.removeEventListener('click', eventFunction, {once: true})
 			}
-
 		}
+
+		function footerBack1Func() {
+
+			footerBack.addEventListener('click', eventFunction, {once:true});
+
+			function eventFunction() {
+				footerBack.classList.remove('click-target')
+				footerBack.classList.remove('signup__back-active')
+				progressBar[1].removeAttribute('src')
+				progressBar[1].setAttribute('src', 'images/progress-1.svg')
+				greetingPage1.style.display = 'block';
+				greetingPage2.style.display = 'none'
+				greetingCampaignNext1Func()
+				footerBack.removeEventListener('click', eventFunction, {once:true});
+			}
+
+			greetingCampaignNext.addEventListener('click', ifGoNext, {once:true});
+			function ifGoNext() {
+				footerBack.removeEventListener('click', eventFunction, {once:true});
+				greetingCampaignNext.removeEventListener('click', ifGoNext, {once:true});
+			}
+
+			greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true});
+			function ifArrowLeft() {
+				footerBack.classList.remove('click-target')
+				footerBack.classList.remove('signup__back-active')
+				footerBack.removeEventListener('click', eventFunction, {once:true});
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
+			}
+		}
+		function greetingCampaignNext2Func() {
+			
+			greetingCampaignNext.addEventListener('click', eventFunction, {once: true})
+			function eventFunction() {
+				progressBar[1].removeAttribute('src')
+				progressBar[1].setAttribute('src', 'images/progress-3.svg')
+				greetingPage1.style.display = 'none';
+				greetingPage2.style.display = 'none'
+				greetingPage3.style.display = 'block'
+				greetingCampaignNext.textContent = 'Save & Send'
+				footerBack2Func();
+				greetingCampaignNext3Func();
+				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
+			}
+
+			footerBack.addEventListener('click', ifGoBack, {once: true})
+			function ifGoBack() {
+				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
+				footerBack.removeEventListener('click', ifGoBack, {once: true})
+			}
+
+
+			greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true});
+			function ifArrowLeft() {
+				footerBack.classList.remove('click-target')
+				footerBack.classList.remove('signup__back-active')
+				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
+			}
+		}
+
+		function footerBack2Func() {
+			
+			footerBack.addEventListener('click', eventFunction, {once:true})
+			function eventFunction() {
+				progressBar[1].removeAttribute('src')
+				progressBar[1].setAttribute('src', 'images/progress-2.svg')
+				greetingPage3.style.display = 'none';
+				greetingPage2.style.display = 'block'
+				greetingCampaignNext.textContent = 'Next'
+				greetingCampaignNext2Func()
+				footerBack1Func();
+				footerBack.removeEventListener('click', eventFunction, {once:true})
+			}
+
+			greetingCampaignNext.addEventListener('click', ifGoNext, {once:true})
+			function ifGoNext() {
+				footerBack.removeEventListener('click', eventFunction, {once:true})
+				greetingCampaignNext.removeEventListener('click', ifGoNext, {once:true})
+			}
+
+			greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true});
+			function ifArrowLeft() {
+				footerBack.removeEventListener('click', eventFunction, {once:true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
+			}
+		}
+
+		function greetingCampaignNext3Func() {
+
+			greetingCampaignNext.addEventListener('click', eventFunction, {once:true})
+			function eventFunction() {
+				let dashboardPage = document.querySelector('.dashboard');
+				let makeNewCampaignPage = document.querySelector('.new-campaign');
+				let greetingCampaignPage = document.querySelector('.greeting-camp')
+
+				makeNewCampaignPage.style.display = 'none'
+				greetingCampaignPage.style.display = 'none'
+				dashboardPage.style.display = 'flex'
+				newCampaignFunc();
+				
+				greetingCampaignNext.removeEventListener('click', eventFunction, {once:true})
+			}
+
+			footerBack.addEventListener('click', ifGoBack, {once: true})
+			function ifGoBack() {
+				greetingCampaignNext.removeEventListener('click', eventFunction, {once:true})
+				footerBack.removeEventListener('click', ifGoBack, {once: true})
+			}
+
+			greetingCampaignArrowLeft.addEventListener('click', ifArrowLeft, {once: true});
+			function ifArrowLeft() {
+				footerBack.classList.remove('click-target')
+				footerBack.classList.remove('signup__back-active')
+				greetingCampaignNext.removeEventListener('click', eventFunction, {once: true})
+				greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true});
+			}
+		}
+
+		
+
+
+
+		
+
+		
+		
+		
+		
+		
 
 
 
