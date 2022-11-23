@@ -1035,3 +1035,24 @@ div .follow-up__sub-header img {
 .follow-up .follow-delete-btn {
   padding: 0 1rem;
 }
+
+/** PROFILE ********************************************************************** PROFILE **/
+.profile {
+  display: none;
+  flex-direction: column;
+}
+.profile .signup__header div {
+  margin-bottom: 1rem;
+}
+.profile .profile-main {
+  position: relative;
+  z-index: 6;
+  width: 88%;
+  margin: 0 auto;
+}
+.profile .profile-membership {
+  width: 35.5rem;
+}
+.profile .profile-settings {
+  width: 35.5rem;
+}

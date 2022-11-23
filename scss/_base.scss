@@ -1378,3 +1378,33 @@ body {
 		padding: 0 1rem;
 	}
 }
+
+
+/** PROFILE ********************************************************************** PROFILE **/
+
+.profile {
+	display: none;
+	flex-direction: column;
+	
+	.signup__header {
+		
+		div {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.profile-main {
+		position: relative;
+		z-index: 6;
+		width: 88%;
+		margin: 0 auto;
+	}
+
+	.profile-membership {
+		width: 35.5rem;
+	}
+
+	.profile-settings {
+		width: 35.5rem;
+	}
+}

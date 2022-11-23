@@ -345,9 +345,12 @@ function dashboard() {
 
 
 	let dashboardFollowUpStart = document.querySelector('.dashboard__latest')
-
 	let followUpPage = document.querySelector('.follow-up')
 	let followUpLeft = document.querySelector('.follow-up-left')
+	
+	let profilePage = document.querySelector('.profile')
+	let profileStartBtn = document.querySelector('.profile-start-btn')
+	let profileLeft = document.querySelector('.profile-left')
 
 
 	scrollContainer.addEventListener("wheel", (evt) => {
@@ -357,6 +360,7 @@ function dashboard() {
 
 	newCampaignFunc();
 	dashboardFollowUpStartFunc()
+	profileStartBtnFunc()
 
 
 	function dashboardFollowUpStartFunc() {
@@ -376,6 +380,26 @@ function dashboard() {
 			followUpPage.style.display = 'none'
 			dashboardFollowUpStartFunc()
 			followUpLeft.removeEventListener('click', eventFunction, {once:true})
+		}
+	}
+
+	function profileStartBtnFunc() {
+		profileStartBtn.addEventListener('click', eventFunction, {once:true})
+		function eventFunction() {
+			dashboardPage.style.display = 'none';
+			profilePage.style.display = 'flex'
+			profileLeftFunc()
+			profileStartBtn.removeEventListener('click', eventFunction, {once:true})
+		}
+	}
+
+	function profileLeftFunc() {
+		profileLeft.addEventListener('click', eventFunction, {once:true})
+		function eventFunction() {
+			dashboardPage.style.display = 'flex';
+			profilePage.style.display = 'none'
+			profileStartBtnFunc()
+			profileLeft.removeEventListener('click', eventFunction, {once:true})
 		}
 	}
 
