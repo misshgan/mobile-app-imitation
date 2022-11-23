@@ -642,7 +642,7 @@ body {
   height: 11.7rem;
 }
 .dashboard__latest {
-  padding: 0 3.5rem;
+  margin: 0 3.5rem;
   margin-bottom: 2.4rem;
 }
 .dashboard__latest img {
@@ -994,4 +994,44 @@ body {
 }
 .social-media-camp .social-media-footer {
   z-index: 1;
+}
+
+/** FOLLOW-UP ********************************************************************** FOLLOW-UP **/
+.follow-up {
+  display: none;
+  flex-direction: column;
+}
+div .follow-up__sub-header {
+  margin-bottom: 0;
+}
+div .follow-up__sub-header img {
+  position: unset;
+  height: 2.9rem;
+  width: auto;
+}
+.follow-up .follow-up-main {
+  border-top: 1px solid #D3D7DB;
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 62rem;
+  margin: 0 auto;
+  width: 88%;
+  padding: 2rem 0;
+}
+.follow-up .follow-up-main img {
+  margin-bottom: 2rem;
+}
+.follow-up .follow-up-main::-webkit-scrollbar {
+  display: none;
+}
+.follow-up .follow-img-1 {
+  margin-left: 1rem;
+  width: 34.6rem;
+}
+.follow-up .follow-delete-btn {
+  padding: 0 1rem;
 }

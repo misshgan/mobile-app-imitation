@@ -882,8 +882,9 @@ body {
 		}
 	}
 	&__latest {
-		padding: 0 3.5rem;
+		margin: 0 3.5rem;
 		margin-bottom: 2.4rem;
+		
 
 		img {
 			width: 33.6rem;
@@ -1323,5 +1324,57 @@ body {
 
 	.social-media-footer {
 		z-index: 1;
+	}
+}
+
+
+/** FOLLOW-UP ********************************************************************** FOLLOW-UP **/
+
+.follow-up {
+
+	display: none;
+	flex-direction: column;
+
+	div &__sub-header {
+
+		margin-bottom: 0;
+
+		img {
+			position: unset;
+			height: 2.9rem;
+			width: auto;
+		}
+	}
+
+	.follow-up-main {
+		border-top: 1px solid #D3D7DB;
+		position: relative;
+		z-index: 6;
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+		overflow-x: hidden;
+		height: 62rem;
+		margin: 0 auto;
+		width: 88%;
+		padding: 2rem 0;
+
+		img {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.follow-up-main::-webkit-scrollbar {
+		display: none;
+	}
+
+	.follow-img-1 {
+		
+		margin-left: 1rem;
+		width: 34.6rem
+	}
+
+	.follow-delete-btn {
+		padding: 0 1rem;
 	}
 }

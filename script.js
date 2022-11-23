@@ -344,6 +344,10 @@ function dashboard() {
 	let greetingLastNext = document.querySelector('.greeting-last-next')
 
 
+	let dashboardFollowUpStart = document.querySelector('.dashboard__latest')
+
+	let followUpPage = document.querySelector('.follow-up')
+	let followUpLeft = document.querySelector('.follow-up-left')
 
 
 	scrollContainer.addEventListener("wheel", (evt) => {
@@ -352,6 +356,28 @@ function dashboard() {
 	});
 
 	newCampaignFunc();
+	dashboardFollowUpStartFunc()
+
+
+	function dashboardFollowUpStartFunc() {
+		dashboardFollowUpStart.addEventListener('click', eventFunction, {once:true})
+		function eventFunction() {
+			dashboardPage.style.display = 'none';
+			followUpPage.style.display = 'flex'
+			followUpLeftFunc()
+			dashboardFollowUpStart.removeEventListener('click', eventFunction, {once:true})
+		} 
+	}
+
+	function followUpLeftFunc() {
+		followUpLeft.addEventListener('click', eventFunction, {once:true})
+		function eventFunction() {
+			dashboardPage.style.display = 'flex';
+			followUpPage.style.display = 'none'
+			dashboardFollowUpStartFunc()
+			followUpLeft.removeEventListener('click', eventFunction, {once:true})
+		}
+	}
 
 	function newCampaignFunc() {
 		newCampaignBtnFunc();
@@ -889,11 +915,7 @@ function dashboard() {
 				socialMediaFooterBack.removeEventListener('click', ifGoBack, {once:true})
 				socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
 			}
-
-			
 		}
-
-		
 
 		function imgCheck2Func() {
 			imgCheck2.forEach(element => {
@@ -935,6 +957,14 @@ function dashboard() {
 				}
 			})
 		}
+
+
+		
+
+
+
+
+		
 
 		
 		
