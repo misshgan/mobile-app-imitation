@@ -357,7 +357,11 @@ function dashboard() {
 
 	let notificationsStartBtn = document.querySelector('.notifications-start')
 	let notificationsPage = document.querySelector('.notifications-body')
-	let notificationsLeft = document.querySelector('.notifications-left')
+
+	let campaignsStartBtn = document.querySelector('.campaigns-start')
+	let campaignsPage = document.querySelector('.campaigns-body')
+	let campaignsFollowUpBtn = document.querySelector('.campaigns-follow-up-btn')
+	let campaignsNewBtn = document.querySelector('.cb-header-img2')
 
 
 	scrollContainer.addEventListener("wheel", (evt) => {
@@ -365,11 +369,15 @@ function dashboard() {
 		scrollContainer.scrollLeft += evt.deltaY;
 	});
 
-	newCampaignFunc();
+	newCampaignBtnFunc();
 	dashboardFollowUpStartFunc()
 	profileStartBtnFunc()
 	notificationsStartBtnFunc()
 	dashboardStartBtnFunc()
+	campaignsStartBtnFunc()
+	campaignsFollowUpBtnFunc()
+	campaignsNewBtnFunc()
+	
 
 
 	function dashboardFollowUpStartFunc() {
@@ -416,9 +424,11 @@ function dashboard() {
 		notificationsStartBtn.addEventListener('click', eventFunction)
 		function eventFunction() {
 			dashboardBody.style.display = 'none'
+			campaignsPage.style.display = 'none'
 			notificationsPage.style.display = 'block';
 			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications-active.svg')
 			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard.svg')
+			campaignsStartBtn.setAttribute('src', 'images/dashboard/inbox.svg')
 		}
 	}
 
@@ -427,15 +437,48 @@ function dashboard() {
 		function eventFunction() {
 			dashboardBody.style.display = 'block'
 			notificationsPage.style.display = 'none';
+			campaignsPage.style.display = 'none'
 			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications.svg')
+			campaignsStartBtn.setAttribute('src', 'images/dashboard/inbox.svg')
 			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard-active.svg')
 		}
 	}
-	
 
-	function newCampaignFunc() {
-		newCampaignBtnFunc();
-		
+	function campaignsStartBtnFunc() {
+		campaignsStartBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			notificationsPage.style.display = 'none';
+			dashboardBody.style.display = 'none'
+			campaignsPage.style.display = 'block'
+			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications.svg')
+			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard.svg')
+			campaignsStartBtn.setAttribute('src', 'images/dashboard/inbox-active.svg')
+			
+		}
+	}
+
+
+	function campaignsFollowUpBtnFunc() {
+		campaignsFollowUpBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			dashboardPage.style.display = 'none';
+			followUpPage.style.display = 'flex'
+			followUpLeftFunc()
+		}
+	}
+
+	function campaignsNewBtnFunc() {
+		campaignsNewBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			dashboardPage.style.display = 'none';
+			makeNewCampaignPage.style.display = 'block';
+			newCampaignBackFunc();
+			greetingCampaignStartBtnFunc()
+			socialMediaCampStartBtnFunc();
+		}
+	}
+	
+	
 
 		function newCampaignBtnFunc() {
 			newCampaignBtn.addEventListener('click', eventFunction, {once: true})
@@ -1011,32 +1054,7 @@ function dashboard() {
 				}
 			})
 		}
-
-
-		
-
-
-
-
-		
-
-		
-		
-
-
-
-		
-
-		
-		
-		
-		
-		
-
-
-
-		
-	}
+	
 }
 
 

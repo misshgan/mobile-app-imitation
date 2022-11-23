@@ -1437,3 +1437,53 @@ body {
 		display: none;
 	}
 }
+
+/** CAMPAIGNS ********************************************************************** CAMPAIGNS **/
+
+.campaigns-body {
+
+	display: none;
+
+	&__header {
+		position: relative;
+		z-index: 6;
+		margin: 0 2.4rem;
+		margin-bottom: 1rem;
+		padding: 9rem 1.3rem 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid #D3D7DB;
+
+		.cb-header-img1 {
+			height: 4.1rem;
+		}
+
+		.cb-header-img2 {
+			height: 2.9rem;
+		}
+	}
+
+	&__main {
+		position: relative;
+		z-index: 6;
+
+		height: 57rem;
+		overflow: auto;
+
+		.cb-main-search {
+			margin: 0 3.7rem;
+			width: 33.1rem;
+		}
+
+		.cb-main-card {
+			width: 35.6rem;
+			margin: 0 2.4rem;
+			margin-bottom: -2rem;
+		}
+	}
+
+	&__main::-webkit-scrollbar {
+		display: none;
+	}
+}
