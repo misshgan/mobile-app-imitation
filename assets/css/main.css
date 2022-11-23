@@ -174,7 +174,7 @@ body {
 .login-1 {
   background: #3B79D8;
   padding-top: 10rem;
-  display: none;
+  display: flex;
   flex-direction: column;
 }
 .login-1__logo {
@@ -545,6 +545,7 @@ body {
 
 .contacts {
   padding: 2.2rem 4rem 0;
+  height: 46rem;
   overflow-y: auto;
 }
 .contacts__item {
@@ -825,6 +826,10 @@ body {
   display: block;
 }
 
+.img-arrow-down_up_sm.arrow-active ~ .greeting-text {
+  display: block;
+}
+
 .img-edit {
   width: 6rem;
   height: 2.9rem;
@@ -837,7 +842,7 @@ body {
   margin-right: 1rem;
 }
 
-.img-arrow-down_up {
+.img-arrow-down_up, .img-arrow-down_up_sm {
   width: 2.4rem;
   height: 2.4rem;
 }
@@ -934,3 +939,56 @@ body {
 }
 
 /** SOCIAL MEDIA CAMPAIGN 1 ********************************************************************** SOCIAL MEDIA CAMPAIGN 1**/
+.social-media-camp {
+  display: none;
+  flex-direction: column;
+}
+.social-media-camp .social-media-page2 {
+  display: none;
+}
+.social-media-camp .social-media-page2 .contacts {
+  height: 51rem;
+}
+.social-media-camp .default-position__popup {
+  display: none;
+  background: none;
+  height: 95%;
+}
+.social-media-camp .default-position__popup-elem {
+  display: flex;
+  flex-direction: column;
+  height: 96%;
+}
+.social-media-camp .popup-big-image {
+  width: 31.7rem;
+  height: 31.7rem;
+}
+.social-media-camp .popup-flex {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.2rem;
+}
+.social-media-camp .popup-flex span {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: #727578;
+}
+.social-media-camp .popup-img-text {
+  width: 31.7rem;
+  height: 11rem;
+  margin-top: 0.6rem;
+}
+.social-media-camp .keyboard {
+  display: none;
+  width: 35.7rem;
+  height: 27.7rem;
+  margin-left: -2.1rem;
+  margin-top: auto;
+  border-bottom-right-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+}
+.social-media-camp .popup-elem__header {
+  margin-bottom: 3.6rem;
+}

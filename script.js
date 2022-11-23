@@ -352,6 +352,7 @@ function dashboard() {
 
 	function newCampaignFunc() {
 		newCampaignBtnFunc();
+		
 
 		function newCampaignBtnFunc() {
 			newCampaignBtn.addEventListener('click', eventFunction, {once: true})
@@ -361,6 +362,7 @@ function dashboard() {
 				makeNewCampaignPage.style.display = 'block';
 				newCampaignBackFunc();
 				greetingCampaignStartBtnFunc()
+				socialMediaCampStartBtnFunc();
 				newCampaignBtn.removeEventListener('click', eventFunction, {once: true})
 				return false;
 			}
@@ -414,6 +416,7 @@ function dashboard() {
 				footerBack.classList.remove('click-target')
 				footerBack.classList.remove('signup__back-active')
 				greetingCampaignStartBtnFunc()
+				socialMediaCampStartBtnFunc()
 				greetingCampaignArrowLeft.removeEventListener('click', eventFunction, {once: true});
 				return false;
 			}
@@ -457,6 +460,7 @@ function dashboard() {
 				function ifArrowLeft() {
 					element.removeEventListener('click', eventFunction);
 					greetingCampaignArrowLeft.removeEventListener('click', ifArrowLeft, {once: true})
+					
 				}
 			})
 		}
@@ -618,6 +622,236 @@ function dashboard() {
 			}
 		}
 
+
+		let socialMediaCamp = document.querySelector('.social-media-camp');
+		let socialMediaCampStartBtn = document.querySelector('.new-social-media-campaign')
+
+		let socialMediaArrowLeft = document.querySelector('.social-media-left')
+
+		let socialMediaPage1 = document.querySelector('.social-media-page1');
+		let socialMediaPage2 = document.querySelector('.social-media-page2')
+		
+		let imgArrowDownUpSM = document.querySelectorAll('.img-arrow-down_up_sm')
+
+		let socialMediaEdit = document.querySelectorAll('.social-media-edit');
+		let socialMediaPopup = document.querySelector('.social-media-popup')
+		let socialMediaPopupBack = document.querySelector('.social-media-popup-back')
+		let popupImgText = document.querySelector('.popup-img-text')
+		let keyboard = document.querySelector('.keyboard')
+		let popupBigImg = document.querySelector('.popup-big-image')
+		let popupGoNext = document.querySelector('.social-media-popup-next')
+
+		let socialMediaProgressBar = document.querySelector('.social-media-progress-bar')
+		let socialMediaFooterBack = document.querySelector('.social-media-footer-back')
+		let socialMediaFooterNext = document.querySelector('.social-media-footer-next')
+
+
+		
+
+		function socialMediaCampStartBtnFunc() {
+			socialMediaCampStartBtn.addEventListener('click', eventFunction, {once: true})
+
+			function eventFunction() {
+				makeNewCampaignPage.style.display = 'none';
+				socialMediaCamp.style.display = 'flex';
+				imgArrowDownUpSMFunc()
+				imgCheckFunc();
+				socialMediaEditFunc()
+				socialMediaArrowLeftFunc()
+				socialMediaCampStartBtn.removeEventListener('click', eventFunction, {once: true})
+			}
+
+			newCampaignBack.addEventListener('click', ifArrowLeft, {once: true});
+			function ifArrowLeft() {
+				socialMediaCampStartBtn.removeEventListener('click', eventFunction, {once: true})
+				newCampaignBack.removeEventListener('click', ifArrowLeft, {once: true});
+				return false;
+			}
+		}
+
+		function socialMediaArrowLeftFunc() {
+			socialMediaArrowLeft.addEventListener('click', eventFunction, {once: true})
+
+			function eventFunction() {
+				socialMediaPage1.style.display = 'block'
+				socialMediaPage2.style.display = 'none'
+				socialMediaFooterNext.textContent = 'Next';
+				socialMediaProgressBar.setAttribute('src', 'images/progress-1.svg')
+				socialMediaCamp.style.display = 'none';
+				makeNewCampaignPage.style.display = 'flex';
+				socialMediaFooterBack.classList.remove('click-target')
+				socialMediaFooterBack.classList.remove('signup__back-active')
+				socialMediaCampStartBtnFunc();
+				socialMediaArrowLeft.removeEventListener('click', eventFunction, {once: true});
+				return false;
+			}
+		}
+
+		function imgArrowDownUpSMFunc() {
+
+			imgArrowDownUpSM.forEach(element => {
+				element.addEventListener('click', eventFunction);
+				function eventFunction() {
+					if (!element.classList.contains('arrow-active')) {
+						element.classList.add('arrow-active');
+						element.setAttribute('src', 'images/greetings-campaign/up.svg')
+					} else if(element.classList.contains('arrow-active')) {
+						element.classList.remove('arrow-active')
+						element.setAttribute('src', 'images/greetings-campaign/down.svg')
+					}
+				}
+
+				socialMediaFooterNext.addEventListener('click', ifGoNext, {once:true})
+				function ifGoNext() {
+					element.removeEventListener('click', eventFunction);
+					socialMediaFooterNext.removeEventListener('click', ifGoNext, {once:true})
+					socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
+				}
+
+				socialMediaArrowLeft.addEventListener('click', ifArrowLeft, {once:true})
+				function ifArrowLeft() {
+					element.removeEventListener('click', eventFunction);
+					socialMediaFooterNext.removeEventListener('click', ifGoNext, {once:true})
+					socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
+				}
+			})
+
+			
+		}
+
+		function socialMediaEditFunc() {
+			socialMediaEdit.forEach(element => {
+				element.addEventListener('click', eventFunction, {once: true});
+				function eventFunction() {
+					socialMediaPopup.style.display = 'block'
+					socialMediaPopupBackFunc()
+					popupImgTextFunc()
+					element.removeEventListener('click', eventFunction, {once: true});
+				}
+			})
+		}
+
+		function socialMediaPopupBackFunc() {
+			socialMediaPopupBack.addEventListener('click', eventFunction, {once:true})
+			function eventFunction() {
+				socialMediaPopup.style.display = 'none'
+				keyboard.style.display = 'none'
+				popupBigImg.style.marginTop = '0'
+				popupImgText.classList.add('click-target')
+				popupImgText.setAttribute('src', 'images/social-medai-campaign/text1.svg')
+				socialMediaEditFunc()
+				socialMediaPopupBack.removeEventListener('click', eventFunction, {once:true})
+			}
+
+			popupGoNext.addEventListener('click', ifGoNext, {once:true})
+			function ifGoNext() {
+				socialMediaPopupBack.removeEventListener('click', eventFunction, {once:true})
+				popupGoNext.removeEventListener('click', ifGoNext, {once:true})
+			}
+		}
+
+		function popupImgTextFunc() {
+			popupImgText.addEventListener('click', eventFunction, {once:true})
+			function eventFunction() {
+				keyboard.style.display = 'block'
+				popupBigImg.style.marginTop = '-10rem'
+				popupImgText.classList.remove('click-target')
+				popupImgText.setAttribute('src', 'images/social-medai-campaign/text2.svg')
+				popupGoNext.classList.add('click-target')
+				popupGoNextFunc()
+				popupImgText.removeEventListener('click', eventFunction, {once:true})
+			}
+
+			popupGoNext.addEventListener('click', ifGoNext, {once:true})
+			function ifGoNext() {
+				socialMediaPopupBack.removeEventListener('click', eventFunction, {once:true})
+				popupGoNext.removeEventListener('click', ifGoNext, {once:true})
+			}
+		}
+
+		function popupGoNextFunc() {
+			popupGoNext.addEventListener('click', eventFunction, {once:true})
+			function eventFunction() {
+				socialMediaPopup.style.display = 'none'
+				keyboard.style.display = 'none'
+				popupBigImg.style.marginTop = '0'
+				popupImgText.classList.add('click-target')
+				popupImgText.setAttribute('src', 'images/social-medai-campaign/text1.svg')
+				socialMediaPage1.style.display = 'none'
+				socialMediaPage2.style.display = 'block'
+				socialMediaProgressBar.setAttribute('src', 'images/progress-3.svg')
+				socialMediaFooterBack.classList.add('click-target')
+				socialMediaFooterBack.classList.add('signup__back-active')
+				socialMediaFooterNext.textContent = 'Save & Post';
+				socialMediaFooterBackFunc()
+				socialMediaFooterNextFunc()
+				popupGoNext.removeEventListener('.click', eventFunction, {once:true})
+			}
+
+			socialMediaPopupBack.addEventListener('click', ifGoBack, {once:true})
+			function ifGoBack() {
+				popupGoNext.removeEventListener('.click', eventFunction, {once:true})
+				socialMediaPopupBack.removeEventListener('click', ifGoBack, {once:true})
+			}
+		}
+
+		function socialMediaFooterBackFunc() {
+			socialMediaFooterBack.addEventListener('click', eventFunction, {once:true})
+			function eventFunction() {
+				popupImgText.setAttribute('src', 'images/social-medai-campaign/text1.svg')
+				socialMediaFooterBack.classList.remove('click-target')
+				socialMediaFooterBack.classList.remove('signup__back-active')
+				socialMediaProgressBar.setAttribute('src', 'images/progress-1.svg')
+				socialMediaPage2.style.display = 'none'
+				socialMediaPage1.style.display = 'block'
+				socialMediaFooterNext.textContent = 'Next'
+				socialMediaEditFunc()
+				socialMediaFooterBack.removeEventListener('click', eventFunction, {once:true})
+			}
+
+			socialMediaArrowLeft.addEventListener('click', ifArrowLeft, {once: true})
+			function ifArrowLeft() {
+				socialMediaFooterBack.removeEventListener('click', eventFunction, {once:true})
+				socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once: true})
+			}
+		}
+
+
+		function socialMediaFooterNextFunc() {
+			socialMediaFooterNext.addEventListener('click', eventFunction, {once:true})
+			function eventFunction() {
+				makeNewCampaignPage.style.display = 'none'
+				socialMediaCamp.style.display = 'none'
+				socialMediaPage2.style.display = 'none'
+				socialMediaPage1.style.display = 'block'
+				dashboardPage.style.display = 'flex'
+				socialMediaFooterNext.textContent = 'Next'
+				socialMediaProgressBar.setAttribute('src', 'images/progress-1.svg')
+				socialMediaFooterBack.classList.remove('click-target')
+				socialMediaFooterBack.classList.remove('signup__back-active')
+				newCampaignFunc();
+
+				socialMediaFooterBack.removeEventListener('click', ifGoBack, {once:true})
+				socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
+				socialMediaFooterNext.removeEventListener('click', eventFunction, {once:true})
+			}
+
+			socialMediaFooterBack.addEventListener('click', ifGoBack, {once:true})
+			function ifGoBack() {
+				socialMediaFooterNext.removeEventListener('click', eventFunction, {once:true})
+				socialMediaFooterBack.removeEventListener('click', ifGoBack, {once:true})
+				socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
+			}
+
+			socialMediaArrowLeft.addEventListener('click', ifArrowLeft, {once:true})
+			function ifArrowLeft() {
+				socialMediaFooterNext.removeEventListener('click', eventFunction, {once:true})
+				socialMediaFooterBack.removeEventListener('click', ifGoBack, {once:true})
+				socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
+			}
+		}
+
+		
 		
 
 
