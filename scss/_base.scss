@@ -302,7 +302,7 @@ body {
 .login-1 {
 	background: $login-1-color;
 	padding-top: 10rem;
-	display: flex;
+	display: none;
 	flex-direction: column;
 
 	&__logo {
@@ -828,13 +828,14 @@ body {
 
 
 .dashboard {
-	display: none;
+	display: flex;
 	flex-direction: column;
 	
 
 	&__body {
 		position: relative;
 		z-index: 6;
+		
 	}
 	
 	&__header {
@@ -1406,5 +1407,33 @@ body {
 
 	.profile-settings {
 		width: 35.5rem;
+	}
+}
+
+
+/** NOTIFICATIONS ********************************************************************** NOTIFICATIONS **/
+
+.notifications-body {
+	display: none;
+
+	.notifications-main {
+		position: relative;
+		z-index: 6;
+		width: 88%;
+		margin: 0 auto;
+		overflow: auto;
+		height: 59rem;
+
+		img {
+			width: 35.5rem;
+		}
+
+		img:not(:last-child) {
+			margin-bottom: 2.4rem;
+		}
+	}
+
+	.notifications-main::-webkit-scrollbar {
+		display: none;
 	}
 }

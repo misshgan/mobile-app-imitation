@@ -314,6 +314,9 @@ function dashboard() {
 	let newCampaignBtn = document.querySelector('.make-new-campaign');
 
 	let dashboardPage = document.querySelector('.dashboard');
+	let dashboardBody = document.querySelector('.dashboard__body')
+	let dashboardStartBtn = document.querySelector('.dashboard-start')
+
 	let makeNewCampaignPage = document.querySelector('.new-campaign');
 	let greetingCampaignPage = document.querySelector('.greeting-camp')
 
@@ -352,6 +355,10 @@ function dashboard() {
 	let profileStartBtn = document.querySelector('.profile-start-btn')
 	let profileLeft = document.querySelector('.profile-left')
 
+	let notificationsStartBtn = document.querySelector('.notifications-start')
+	let notificationsPage = document.querySelector('.notifications-body')
+	let notificationsLeft = document.querySelector('.notifications-left')
+
 
 	scrollContainer.addEventListener("wheel", (evt) => {
 		evt.preventDefault();
@@ -361,6 +368,8 @@ function dashboard() {
 	newCampaignFunc();
 	dashboardFollowUpStartFunc()
 	profileStartBtnFunc()
+	notificationsStartBtnFunc()
+	dashboardStartBtnFunc()
 
 
 	function dashboardFollowUpStartFunc() {
@@ -402,6 +411,27 @@ function dashboard() {
 			profileLeft.removeEventListener('click', eventFunction, {once:true})
 		}
 	}
+
+	function notificationsStartBtnFunc() {
+		notificationsStartBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			dashboardBody.style.display = 'none'
+			notificationsPage.style.display = 'block';
+			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications-active.svg')
+			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard.svg')
+		}
+	}
+
+	function dashboardStartBtnFunc() {
+		dashboardStartBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			dashboardBody.style.display = 'block'
+			notificationsPage.style.display = 'none';
+			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications.svg')
+			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard-active.svg')
+		}
+	}
+	
 
 	function newCampaignFunc() {
 		newCampaignBtnFunc();

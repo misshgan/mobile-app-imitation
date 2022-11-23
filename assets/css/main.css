@@ -174,7 +174,7 @@ body {
 .login-1 {
   background: #3B79D8;
   padding-top: 10rem;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 .login-1__logo {
@@ -599,7 +599,7 @@ body {
 
 /** DASHBOARD ********************************************************************** DASHBOARD **/
 .dashboard {
-  display: none;
+  display: flex;
   flex-direction: column;
 }
 .dashboard__body {
@@ -1055,4 +1055,26 @@ div .follow-up__sub-header img {
 }
 .profile .profile-settings {
   width: 35.5rem;
+}
+
+/** NOTIFICATIONS ********************************************************************** NOTIFICATIONS **/
+.notifications-body {
+  display: none;
+}
+.notifications-body .notifications-main {
+  position: relative;
+  z-index: 6;
+  width: 88%;
+  margin: 0 auto;
+  overflow: auto;
+  height: 59rem;
+}
+.notifications-body .notifications-main img {
+  width: 35.5rem;
+}
+.notifications-body .notifications-main img:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+.notifications-body .notifications-main::-webkit-scrollbar {
+  display: none;
 }
