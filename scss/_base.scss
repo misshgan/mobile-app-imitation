@@ -1113,7 +1113,7 @@ body {
 	margin-right: 0.6rem;
 }
 
-.img-check {
+.img-check, .img-check2 {
 	width: 2.9rem;
 	height: 2.9rem;
 	margin-right: 1rem;
@@ -1319,5 +1319,9 @@ body {
 	.popup-elem__header-span {
 	}
 	.signup-block__input-block {
+	}
+
+	.social-media-footer {
+		z-index: 1;
 	}
 }

@@ -836,7 +836,7 @@ body {
   margin-right: 0.6rem;
 }
 
-.img-check {
+.img-check, .img-check2 {
   width: 2.9rem;
   height: 2.9rem;
   margin-right: 1rem;
@@ -991,4 +991,7 @@ body {
 }
 .social-media-camp .popup-elem__header {
   margin-bottom: 3.6rem;
+}
+.social-media-camp .social-media-footer {
+  z-index: 1;
 }
