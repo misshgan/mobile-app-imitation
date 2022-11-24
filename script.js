@@ -366,7 +366,7 @@ function dashboard() {
 	let crmBodyPage = document.querySelector('.crm-body')
 	let crmStartBtn = document.querySelector('.crm-start')
 
-	let messagesStartBtn = document.querySelector('.messages-start-btn')
+	let messagesStartBtn = document.querySelectorAll('.messages-start-btn')
 	let messagesPage = document.querySelector('.messages')
 	let messagesLeft = document.querySelector('.messages-left')
 
@@ -384,6 +384,7 @@ function dashboard() {
 	
 	newCampaignBtnFunc();
 	dashboardFollowUpStartFunc()
+	followUpLeftFunc()
 	profileStartBtnFunc()
 	notificationsStartBtnFunc()
 	dashboardStartBtnFunc()
@@ -402,22 +403,19 @@ function dashboard() {
 
 
 	function dashboardFollowUpStartFunc() {
-		dashboardFollowUpStart.addEventListener('click', eventFunction, {once:true})
+		dashboardFollowUpStart.addEventListener('click', eventFunction)
 		function eventFunction() {
 			dashboardPage.style.display = 'none';
 			followUpPage.style.display = 'flex'
-			followUpLeftFunc()
-			dashboardFollowUpStart.removeEventListener('click', eventFunction, {once:true})
+			
 		} 
 	}
 
 	function followUpLeftFunc() {
-		followUpLeft.addEventListener('click', eventFunction, {once:true})
+		followUpLeft.addEventListener('click', eventFunction)
 		function eventFunction() {
 			dashboardPage.style.display = 'flex';
 			followUpPage.style.display = 'none'
-			dashboardFollowUpStartFunc()
-			followUpLeft.removeEventListener('click', eventFunction, {once:true})
 		}
 	}
 
@@ -523,13 +521,16 @@ function dashboard() {
 	}
 
 	function messagesStartBtnFunc() {
-		messagesStartBtn.addEventListener('click', eventFunction)
-		function eventFunction() {
-			dashboardPage.style.display = 'none';
-			messagesPage.style.display = 'flex'
-			
-		}
+		messagesStartBtn.forEach(element => {
+			element.addEventListener('click', eventFunction)
+			function eventFunction() {
+				dashboardPage.style.display = 'none';
+				messagesPage.style.display = 'flex'
+				followUpPage.style.display = 'none'
+			}
+		})
 	}
+
 
 	function messagesLeftFunc() {
 		messagesLeft.addEventListener('click', eventFunction)
@@ -546,6 +547,7 @@ function dashboard() {
 				messagesPage.style.display = 'none'
 				dashboardPage.style.display = 'none'
 				privateMesPage.style.display = 'flex'
+				followUpPage.style.display = 'none'
 			}
 		})
 	}
