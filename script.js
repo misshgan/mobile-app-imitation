@@ -370,12 +370,18 @@ function dashboard() {
 	let messagesPage = document.querySelector('.messages')
 	let messagesLeft = document.querySelector('.messages-left')
 
+	let privateMesFollowUpBtn = document.querySelector('.private-m-follow-up-btn')
+	let privateMesLeftBtn = document.querySelector('.private-m-left')
+	let privateMesPage = document.querySelector('.private-m')
+	let privateMesStartBtn = document.querySelectorAll('.private-message-start')
+
 
 	scrollContainer.addEventListener("wheel", (evt) => {
 		evt.preventDefault();
 		scrollContainer.scrollLeft += evt.deltaY;
 	});
 
+	
 	newCampaignBtnFunc();
 	dashboardFollowUpStartFunc()
 	profileStartBtnFunc()
@@ -387,6 +393,11 @@ function dashboard() {
 	crmStartBtnFunc()
 	messagesStartBtnFunc()
 	messagesLeftFunc()
+	privateMesStartBtnFunc()
+	privateMesLeftBtnFunc()
+	privateMesFollowUpBtnFunc()
+	greetingCampaignStartBtnFunc()
+	
 	
 
 
@@ -506,8 +517,8 @@ function dashboard() {
 			dashboardPage.style.display = 'none';
 			makeNewCampaignPage.style.display = 'block';
 			newCampaignBackFunc();
-			greetingCampaignStartBtnFunc()
-			socialMediaCampStartBtnFunc();
+			// greetingCampaignStartBtnFunc()
+			// socialMediaCampStartBtnFunc();
 		}
 	}
 
@@ -528,21 +539,47 @@ function dashboard() {
 		}
 	}
 
+	function privateMesStartBtnFunc() {
+		privateMesStartBtn.forEach(element => {
+			element.addEventListener('click', eventFunction)
+			function eventFunction() {
+				messagesPage.style.display = 'none'
+				dashboardPage.style.display = 'none'
+				privateMesPage.style.display = 'flex'
+			}
+		})
+	}
+
+	function privateMesLeftBtnFunc() {
+		privateMesLeftBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			privateMesPage.style.display = 'none'
+			dashboardPage.style.display = 'flex'
+		}
+	}
+
+	function privateMesFollowUpBtnFunc() {
+		privateMesFollowUpBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			privateMesPage.style.display = 'none'
+			followUpPage.style.display = 'flex'
+			followUpLeftFunc()
+		}
+	}
+
 	
 	
 	
 
 		function newCampaignBtnFunc() {
-			newCampaignBtn.addEventListener('click', eventFunction, {once: true})
+			newCampaignBtn.addEventListener('click', eventFunction)
 
 			function eventFunction() {
 				dashboardPage.style.display = 'none';
 				makeNewCampaignPage.style.display = 'block';
 				newCampaignBackFunc();
-				greetingCampaignStartBtnFunc()
-				socialMediaCampStartBtnFunc();
-				
-				newCampaignBtn.removeEventListener('click', eventFunction, {once: true})
+				// greetingCampaignStartBtnFunc()
+				// socialMediaCampStartBtnFunc();
 				return false;
 			}
 		}
@@ -577,6 +614,11 @@ function dashboard() {
 					element.removeEventListener('click', eventFunction);
 					footerBack.removeEventListener('click', ifGoBack, {once:true})
 				}
+
+				dashboardStartBtn.addEventListener('click', ifDashboard)
+				function ifDashboard() {
+					element.removeEventListener('click', eventFunction);
+				}
 			})
 		}
 
@@ -586,14 +628,14 @@ function dashboard() {
 			function eventFunction() {
 				dashboardPage.style.display = 'flex';
 				makeNewCampaignPage.style.display = 'none';
-				newCampaignBtnFunc();
+				
 				newCampaignBack.removeEventListener('click', eventFunction, {once: true});
 				return false;
 			}
 		}
 
 		function greetingCampaignStartBtnFunc() {
-			greetingCampaignStartBtn.addEventListener('click', eventFunction, {once: true})
+			greetingCampaignStartBtn.addEventListener('click', eventFunction)
 
 			function eventFunction() {
 				makeNewCampaignPage.style.display = 'none';
@@ -602,13 +644,13 @@ function dashboard() {
 				imgCheckFunc();
 				imgArrowDownUpFunc()
 				greetingCampaignNext1Func();
-				greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
+				// greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
 				newCampaignBack.removeEventListener('click', eventFunction, {once: true});
 			}
 
 			newCampaignBack.addEventListener('click', ifArrowLeft, {once: true});
 			function ifArrowLeft() {
-				greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
+				// greetingCampaignStartBtn.removeEventListener('click', eventFunction, {once: true})
 				newCampaignBack.removeEventListener('click', eventFunction, {once: true});
 				return false;
 			}
@@ -628,8 +670,7 @@ function dashboard() {
 				footerBack.classList.remove('click-target')
 				footerBack.classList.remove('signup__back-active')
 				greetingCampaignNext.classList.remove('greeting-last-next')
-				greetingCampaignStartBtnFunc()
-				socialMediaCampStartBtnFunc()
+				// greetingCampaignStartBtnFunc()
 				greetingCampaignArrowLeft.removeEventListener('click', eventFunction, {once: true});
 				return false;
 			}
@@ -775,7 +816,6 @@ function dashboard() {
 				footerBack.classList.remove('click-target')
 				footerBack.classList.remove('signup__back-active')
 				greetingCampaignNext.classList.remove('greeting-last-next')
-				newCampaignFunc();
 
 				greetingCampaignNext.removeEventListener('click', eventFunction, {once:true})
 				footerBack.removeEventListener('click', ifGoBack, {once: true})
@@ -855,7 +895,7 @@ function dashboard() {
 		
 
 		function socialMediaCampStartBtnFunc() {
-			socialMediaCampStartBtn.addEventListener('click', eventFunction, {once: true})
+			socialMediaCampStartBtn.addEventListener('click', eventFunction)
 
 			function eventFunction() {
 				makeNewCampaignPage.style.display = 'none';
@@ -864,15 +904,17 @@ function dashboard() {
 				imgCheck2Func();
 				socialMediaEditFunc()
 				socialMediaArrowLeftFunc()
-				socialMediaCampStartBtn.removeEventListener('click', eventFunction, {once: true})
+				// socialMediaCampStartBtn.removeEventListener('click', eventFunction, {once: true})
 			}
 
 			newCampaignBack.addEventListener('click', ifArrowLeft, {once: true});
 			function ifArrowLeft() {
-				socialMediaCampStartBtn.removeEventListener('click', eventFunction, {once: true})
+				// socialMediaCampStartBtn.removeEventListener('click', eventFunction, {once: true})
 				newCampaignBack.removeEventListener('click', ifArrowLeft, {once: true});
 			}
 		}
+
+		socialMediaCampStartBtnFunc()
 
 		function socialMediaArrowLeftFunc() {
 			socialMediaArrowLeft.addEventListener('click', eventFunction, {once: true})
@@ -886,7 +928,7 @@ function dashboard() {
 				makeNewCampaignPage.style.display = 'flex';
 				socialMediaFooterBack.classList.remove('click-target')
 				socialMediaFooterBack.classList.remove('signup__back-active')
-				socialMediaCampStartBtnFunc();
+				// socialMediaCampStartBtnFunc();
 				socialMediaArrowLeft.removeEventListener('click', eventFunction, {once: true});
 				return false;
 			}
@@ -1044,8 +1086,7 @@ function dashboard() {
 				socialMediaProgressBar.setAttribute('src', 'images/progress-1.svg')
 				socialMediaFooterBack.classList.remove('click-target')
 				socialMediaFooterBack.classList.remove('signup__back-active')
-				newCampaignFunc();
-
+				
 				socialMediaFooterBack.removeEventListener('click', ifGoBack, {once:true})
 				socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
 				socialMediaFooterNext.removeEventListener('click', eventFunction, {once:true})
@@ -1098,12 +1139,18 @@ function dashboard() {
 					socialMediaFooterBack.removeEventListener('click', ifGoBack, {once:true})
 				}
 
-				newCampaignBtn.addEventListener('click', ifMakeNew, {once:true})
-				function ifMakeNew() {
-					element.removeEventListener('click', eventFunction)
-					socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
-					newCampaignBtn.removeEventListener('click', ifMakeNew, {once:true})
-				}
+				// greetingCampaignNext.addEventListener('click', ifGreetingNext, {once:true})
+				// function ifGreetingNext() {
+				// 	element.removeEventListener('click', eventFunction)
+				// 	greetingCampaignNext.removeEventListener('click', ifGreetingNext, {once:true})
+				// }
+
+				// newCampaignBtn.addEventListener('click', ifMakeNew, {once:true})
+				// function ifMakeNew() {
+				// 	element.removeEventListener('click', eventFunction)
+				// 	socialMediaArrowLeft.removeEventListener('click', ifArrowLeft, {once:true})
+				// 	newCampaignBtn.removeEventListener('click', ifMakeNew, {once:true})
+				// }
 			})
 		}
 	

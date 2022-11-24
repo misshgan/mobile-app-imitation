@@ -302,7 +302,7 @@ body {
 .login-1 {
 	background: $login-1-color;
 	padding-top: 10rem;
-	display: none;
+	display: flex;
 	flex-direction: column;
 
 	&__logo {
@@ -828,7 +828,7 @@ body {
 
 
 .dashboard {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	
 
@@ -1641,3 +1641,79 @@ body {
 	}
 	
 }
+
+
+/** PRIVATE-MESSAGE ********************************************************************** PRIVATE-MESSAGE **/
+
+.private-m {
+	display: none;
+	flex-direction: column;
+
+	.signup__header {
+
+		div {
+			margin-bottom: 1rem;
+
+			span {
+				font-size: 2.2rem;
+			}
+		}
+	}
+
+	&__main {
+		position: relative;
+		z-index: 6;
+		width: 88%;
+  		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__header {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 2rem;
+
+		img {
+			height: 2.9rem;
+
+			&:not(:last-child) {
+				margin-right: 0.2rem;
+			}
+		}
+	}
+	&__body {
+		width: 100%;
+		border-top: 1px solid #D3D7DB;
+		padding-top: 1.4rem;
+		padding-bottom: 6.9rem;
+	}
+	&__right {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+
+		img {
+			width: 32.2rem;
+
+			&:first-child {
+				margin-right: 1.2rem;
+			}
+		}
+	}
+	&__left {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		img {
+			width: 32.2rem;
+			margin-left: 1.2rem;
+		}
+	}
+	&__send {
+		width: 90%;
+	}
+}
+
