@@ -352,7 +352,7 @@ function dashboard() {
 	let followUpLeft = document.querySelector('.follow-up-left')
 	
 	let profilePage = document.querySelector('.profile')
-	let profileStartBtn = document.querySelector('.profile-start-btn')
+	let profileStartBtn = document.querySelectorAll('.profile-start-btn')
 	let profileLeft = document.querySelector('.profile-left')
 
 	let notificationsStartBtn = document.querySelector('.notifications-start')
@@ -362,6 +362,13 @@ function dashboard() {
 	let campaignsPage = document.querySelector('.campaigns-body')
 	let campaignsFollowUpBtn = document.querySelector('.campaigns-follow-up-btn')
 	let campaignsNewBtn = document.querySelector('.cb-header-img2')
+
+	let crmBodyPage = document.querySelector('.crm-body')
+	let crmStartBtn = document.querySelector('.crm-start')
+
+	let messagesStartBtn = document.querySelector('.messages-start-btn')
+	let messagesPage = document.querySelector('.messages')
+	let messagesLeft = document.querySelector('.messages-left')
 
 
 	scrollContainer.addEventListener("wheel", (evt) => {
@@ -377,6 +384,9 @@ function dashboard() {
 	campaignsStartBtnFunc()
 	campaignsFollowUpBtnFunc()
 	campaignsNewBtnFunc()
+	crmStartBtnFunc()
+	messagesStartBtnFunc()
+	messagesLeftFunc()
 	
 
 
@@ -401,13 +411,16 @@ function dashboard() {
 	}
 
 	function profileStartBtnFunc() {
-		profileStartBtn.addEventListener('click', eventFunction, {once:true})
-		function eventFunction() {
-			dashboardPage.style.display = 'none';
-			profilePage.style.display = 'flex'
-			profileLeftFunc()
-			profileStartBtn.removeEventListener('click', eventFunction, {once:true})
-		}
+		profileStartBtn.forEach(element => {
+			element.addEventListener('click', eventFunction, {once:true})
+			function eventFunction() {
+				dashboardPage.style.display = 'none';
+				profilePage.style.display = 'flex'
+				profileLeftFunc()
+				element.removeEventListener('click', eventFunction, {once:true})
+			}
+		})
+		
 	}
 
 	function profileLeftFunc() {
@@ -425,10 +438,12 @@ function dashboard() {
 		function eventFunction() {
 			dashboardBody.style.display = 'none'
 			campaignsPage.style.display = 'none'
+			crmBodyPage.style.display = 'none'
 			notificationsPage.style.display = 'block';
 			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications-active.svg')
 			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard.svg')
 			campaignsStartBtn.setAttribute('src', 'images/dashboard/inbox.svg')
+			crmStartBtn.setAttribute('src', 'images/dashboard/CRM.svg')
 		}
 	}
 
@@ -438,8 +453,10 @@ function dashboard() {
 			dashboardBody.style.display = 'block'
 			notificationsPage.style.display = 'none';
 			campaignsPage.style.display = 'none'
+			crmBodyPage.style.display = 'none'
 			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications.svg')
 			campaignsStartBtn.setAttribute('src', 'images/dashboard/inbox.svg')
+			crmStartBtn.setAttribute('src', 'images/dashboard/CRM.svg')
 			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard-active.svg')
 		}
 	}
@@ -449,11 +466,27 @@ function dashboard() {
 		function eventFunction() {
 			notificationsPage.style.display = 'none';
 			dashboardBody.style.display = 'none'
+			crmBodyPage.style.display = 'none'
 			campaignsPage.style.display = 'block'
 			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications.svg')
 			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard.svg')
+			crmStartBtn.setAttribute('src', 'images/dashboard/CRM.svg')
 			campaignsStartBtn.setAttribute('src', 'images/dashboard/inbox-active.svg')
 			
+		}
+	}
+
+	function crmStartBtnFunc() {
+		crmStartBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			notificationsPage.style.display = 'none';
+			dashboardBody.style.display = 'none'
+			campaignsPage.style.display = 'none'
+			crmBodyPage.style.display = 'block'
+			notificationsStartBtn.setAttribute('src', 'images/dashboard/notifications.svg')
+			dashboardStartBtn.setAttribute('src', 'images/dashboard/dashboard.svg')
+			campaignsStartBtn.setAttribute('src', 'images/dashboard/inbox.svg')
+			crmStartBtn.setAttribute('src', 'images/dashboard/CRM-active.svg')
 		}
 	}
 
@@ -477,6 +510,25 @@ function dashboard() {
 			socialMediaCampStartBtnFunc();
 		}
 	}
+
+	function messagesStartBtnFunc() {
+		messagesStartBtn.addEventListener('click', eventFunction)
+		function eventFunction() {
+			dashboardPage.style.display = 'none';
+			messagesPage.style.display = 'flex'
+			
+		}
+	}
+
+	function messagesLeftFunc() {
+		messagesLeft.addEventListener('click', eventFunction)
+		function eventFunction() {
+			dashboardPage.style.display = 'flex';
+			messagesPage.style.display = 'none'
+		}
+	}
+
+	
 	
 	
 

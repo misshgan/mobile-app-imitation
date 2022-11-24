@@ -1118,3 +1118,127 @@ div .follow-up__sub-header img {
 .campaigns-body__main::-webkit-scrollbar {
   display: none;
 }
+
+/** CRM ********************************************************************** CRM **/
+.crm-body {
+  display: none;
+}
+.crm-body .crm-body-image1 {
+  margin-left: 1rem;
+  width: 33.6rem;
+  margin-bottom: 2rem;
+}
+.crm-body .crm-body-image2 {
+  margin-left: 1rem;
+  width: 34.6rem;
+}
+.crm-body__main {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  margin: 0 auto;
+  width: 88%;
+  height: 57rem;
+}
+.crm-body__main::-webkit-scrollbar {
+  display: none;
+}
+.crm-body__group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 33rem;
+  margin: 0 auto;
+  padding: 1.2rem;
+  border: 1px solid #D3D7DB;
+  border-bottom: none;
+  border-top-left-radius: 1.4rem;
+  border-top-right-radius: 1.4rem;
+}
+.crm-body__group-header img {
+  height: 4rem;
+}
+.crm-body__group-header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.crm-body__group-header div img {
+  height: 2.9rem;
+  margin-left: 0.6rem;
+}
+.crm-body__group-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.crm-body__group-main img {
+  width: 33rem;
+  padding: 1.5rem;
+  border: 1px solid #D3D7DB;
+}
+.crm-body__group-main img:not(:last-child) {
+  border-bottom: none;
+}
+.crm-body__group-main img:last-child {
+  border-bottom-left-radius: 1.4rem;
+  border-bottom-right-radius: 1.4rem;
+}
+
+/** MESSAGES ********************************************************************** MESSAGES **/
+.messages {
+  display: none;
+  flex-direction: column;
+}
+.messages .messages-main {
+  position: relative;
+  z-index: 6;
+  width: 88%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.messages .messages-main .signup__header div {
+  margin-bottom: 1.5rem;
+}
+.messages .messages-main__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+}
+.messages .messages-main__header .m-img1 {
+  height: 4.1rem;
+}
+.messages .messages-main__header .m-img2 {
+  height: 2.9rem;
+}
+.messages .messages-main__sub-header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0.9rem 0;
+  border-top: 1px solid #D3D7DB;
+  border-bottom: 1px solid #D3D7DB;
+}
+.messages .messages-main__sub-header img {
+  height: 2.8rem;
+}
+.messages .messages-main__sub-header img:not(:last-child) {
+  margin-right: 0.3rem;
+}
+.messages .messages-main__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.messages .messages-main__body img {
+  width: 35.6rem;
+  padding: 1.7rem;
+  border-bottom: 1px solid #D3D7DB;
+}
